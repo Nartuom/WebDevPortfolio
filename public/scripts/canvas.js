@@ -8,8 +8,6 @@ var c = canvas.getContext("2d");
 var innerWidth = window.innerWidth;
 var innerHeight= window.innerHeight;
 
-
-
 function createLines(){
 	var x = Math.random() * window.innerWidth;
 	var y = x + 100;

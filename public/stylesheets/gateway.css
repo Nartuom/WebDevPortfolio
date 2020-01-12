@@ -1,61 +1,77 @@
 body {
-	/* background-image:url(/img/casey-horner-Space-unsplash.jpg); */
-	background-color: #5CDB95;
+	background-color: #FFFFFF ;
 	background-size: cover;
-	color: #EDF5E1; 
-	font-family: 'B612', sans-serif;
+	color: #274D5A; 
+	font-family: 'Dosis', sans-serif;
 	margin: 0;
 }
 
 #myCanvas{
 	border: 1px solid black;
-	background-color:#5CDB95 ;
+	background-color: #274d5A;
+	/* scroll-snap-align: end; */
 	
 }
 
 .container {
 	height:100%;
-	display: grid;
-	grid-template-columns: fit-content(100%);
-	grid-template-rows: 50px minmax(100px, 100%);
-	margin-bottom: 0; 
+	margin-bottom: 0;
+	overflow-y: scroll;
+	/* scroll-snap-type: y mandatory; */
 	
 }
 
-header {
-	grid-column: span 12;
-	display: flex;
-	padding: 20px 20px;
-	color: #EDF5E1;
-	
+section {
+	/* scroll-snap-align:start; */
+	height: 100%;
+	padding: 127px 207px;
+}
+section h3 {
+	padding:10px;
 }
 
-ul{
-	text-align: left;
+.bio {
+	display: inline-grid;
+	grid-template-areas:
+		"h2 h2 image image"
+		"about about image image";
+	grid-gap: 10px;
+	padding: 10px;
+		
 }
 
-#bio {
-	max-height:100%;
-	grid-column: span 4;
-	background-color: rgba(92, 219, 149, 0);
-	width: 300px;
-	text-align: center;
-	padding: 20px 20px;	
+.bio h2 {
+	grid-area: h2;
 	
-	
+	font-size: 100px;
+	margin:0;
+	text-transform: uppercase;
+}
+.about {
+	grid-area: about;
+}
+.bio img {
+	grid-area: image;
+}
+.skills {
+	display:inline-block;
+	padding: 10px;
+	width:30%;
 }
 
-#portrait{
-	border-radius: 50%;
-	object-fit: cover;
+
+
+
+
 	
-	border: 1px solid #3e555e;
-	background: #05386B;
- 	padding: 5px;
+
+
+
+
+
+
 	
-	height: 200px;
-  	width: 200px;
-	object-position: 55% 45%;
-	
-}
+
+
+
 
