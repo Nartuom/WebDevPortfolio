@@ -10,78 +10,114 @@
 		<div class="container">
 			<canvas id="myCanvas"></canvas>
 			<script src="/scripts/canvas.js"></script>
-			
-			<section>
+			<script>
+				document.getElementById("demo").onmouseover = function() {mouseOver()};
+				document.getElementById("demo").onmouseout = function() {mouseOut()};
 				
+				function mouseOver() {
+					var animate = document.getElementById("demo");
+					  animate.src = "/img/patatapClone.gif";
+					}
+
+				function mouseOut() {
+					  document.getElementById("demo").src = "/img/patatapStatic.png";
+					}
+			</script>
+			
+			<div class="wrapper">
+				
+				<section>
 				<div class="bio">	
 					<div>
 						<h2>ABOUT</h2>
-						<p class="about">
+						<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.
 						</p>
 					</div>
+					<div>
+						<img id="cat" src ="/img/spacecat.jpg">	
+					</div>
 					
-					<img id="cat" src ="/img/spacecat.jpg">	
 					
 				</div>
 				
 				<div>
 					<h3>Skills</h3>
-					<div>
-						<div class= "skills">
+					<div class="skills-container">
+						<div>
 							<img src="/img/html5icon.png">
 							<h5>HTML5</h5>
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.</p>
 						</div>
-						<div class= "skills">CSS</div>
-						<div class="skills">JAVASCRIPT</div>	
+						<div>
+							<img src="/img/cssIcon.png">
+							<h5>CSS</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+						
+						</div>
+							
+						<div>
+							<img src="/img/javascript.png">
+							<h5>JAVASCRIPT</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+						</div>
+						
+						<div>
+							<img src="/img/expressjs.jpg">
+							<h5>NODE.JS</h5>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+						</div>
+						
 						
 					</div>
 								
 				</div>
 				
-			</section>		
-					
-			<section>
-				<div>
+				</section>
+			
+				<br>
+			</div>	
+
+				<section class="grey-background">
 					<div>
-						<h2>
-							Section about my coding portfolio
-						</h2>
+						<div class="wrapper" >
+							<h2>Portfolio</h2>
+							<div class="projects-container">
+								<div>
+									<img onmouseover="mouseOver(this)" onmouseout="mouseOur(this)" id="demo" src="/img/patatapStatic.png">
+									<a>Patatap Clone
+										
+									</a></div>
+								<div></div>
+								<div></div>
+							</div>
+						</div>
+
+
 					</div>
 
-					<div>
-						<p>
-							Link to stuff
-						</p>
-						<ul>
-							<li></li>
-							<li></li>
-							<li></li>
-							<li></li>
-						</ul>
-					</div>
+				</section>
+			
+			<div class="wrapper">
 
-				</div>
-				
-			</section>
-				
-			
-			<section>
-				<div>
-					<form>
-						<label>To contact me fill in this form</label>
-						<input type="text" placeholder= "Your message">
-						<input type="text" placeholder= "Your email address">
-						<button>
-							Submit
-						</button>
-					</form>	
-				</div>
-			</section>
-			
-			
+
+				<section>
+					<div>
+						<form>
+							<label>To contact me fill in this form</label>
+							<input type="text" placeholder= "Your message">
+							<input type="text" placeholder= "Your email address">
+							<button>
+								Submit
+							</button>
+						</form>	
+					</div>
+				</section>
+
+			</div>		
 		</div>
+			
+		
 		
 	</body>
 	
