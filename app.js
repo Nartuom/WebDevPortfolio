@@ -6,8 +6,8 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
 	res.render("index");
 });
-
-app.listen(3000, process.env.IP, function(){
+var port = process.env.PORT || 3000;
+app.listen(port, function(){
 	console.log("server listening on PORT 3000");
 
 });
