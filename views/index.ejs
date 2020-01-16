@@ -7,102 +7,103 @@
 	</head>
 	<body>
 		
-		<div class="container">
-			<canvas id="myCanvas"></canvas>
-			<script src="/scripts/canvas.js"></script>
-			<script>
-				document.getElementById("demo").onmouseover = function() {mouseOver()};
-				document.getElementById("demo").onmouseout = function() {mouseOut()};
-				
-				function mouseOver() {
-					var animate = document.getElementById("demo");
-					  animate.src = "/img/patatapClone.gif";
-					}
-
-				function mouseOut() {
-					  document.getElementById("demo").src = "/img/patatapStatic.png";
-					}
-			</script>
+		<canvas id="myCanvas"></canvas>
+		<script src="/scripts/canvas.js"></script>
 			
-			<div class="wrapper">
-				
+		<div class="wrapper">
+			<main>
 				<section>
-				<div class="bio">	
-					<div>
-						<h2>ABOUT my bum</h2>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.
-						</p>
-					</div>
-					<div>
-						<img id="cat" src ="/img/spacecat.jpg">	
+					<div class="bio-container">
+						<div>
+							<h2>ABOUT</h2>
+							<p>
+								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.
+							</p>
+						</div>	
+						
+						<img src="https://via.placeholder.com/738x334">
+						
 					</div>
 					
-					
-				</div>
-				
-				<div>
-					<h3>Skills</h3>
-					<div class="skills-container">
-						<div>
-							<img src="/img/html5icon.png">
-							<h5>HTML5</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.</p>
-						</div>
-						<div>
-							<img src="/img/cssIcon.png">
-							<h5>CSS</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						
-						</div>
-							
-						<div>
-							<img src="/img/javascript.png">
-							<h5>JAVASCRIPT</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						</div>
-						
-						<div>
-							<img src="/img/expressjs.jpg">
-							<h5>NODE.JS</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						</div>
-						
-						
-					</div>
-								
-				</div>
-				
-				</section>
-			
-				<br>
-			</div>	
-
-				<section class="grey-background">
 					<div>
-						<div class="wrapper" >
-							<h2>Portfolio</h2>
-							<div class="projects-container">
-								<div>
-									<img onmouseover="mouseOver(this)" onmouseout="mouseOur(this)" id="demo" src="/img/patatapStatic.png">
-									<a>Patatap Clone
-										
-									</a></div>
-								<div></div>
-								<div></div>
+						<h3>Skills</h3>
+						<div class="skills-container">
+	
+							<div>
+								<img src="/img/html5icon.png">
+								<h5>HTML5</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.</p>
 							</div>
+	
+							<div>
+								<img src="/img/cssIcon.png">
+								<h5>CSS</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+							
+							</div>
+								
+							<div>
+								<img src="/img/javascript.png">
+								<h5>JAVASCRIPT</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+							</div>
+							
+							<div>
+								<img src="/img/expressjs.jpg">
+								<h5>NODE.JS</h5>
+								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+							</div>
+							
 						</div>
-
-
+									
 					</div>
-
+				</section>
+	
+				<section class="grey-background">
+					
+					<h2>Portfolio</h2>
+	
+					<div class="projects-container">
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Indoor Counselling, Outdoor Therapy</h4>
+						</div>
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>No mans Son</h4>
+						</div>
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Placeholder</h4>
+						</div>
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Indoor Counselling, Outdoor Therapy</h4>
+						</div>
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>No mans Son</h4>
+						</div>
+	
+						<div class="projects-thumbnail">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Placeholder</h4>
+						</div>
+	
+					</div>				
+	
 				</section>
 			
-			<div class="wrapper">
-
-
-				<section>
+			
+				<section class="contact-container">
 					<div>
+						<h2>CONTACT</h2>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.</p>
 						<form>
 							<label>To contact me fill in this form</label>
 							<input type="text" placeholder= "Your message">
@@ -111,13 +112,17 @@
 								Submit
 							</button>
 						</form>	
+
 					</div>
+
+					<img src="https://via.placeholder.com/847x980">
+										
 				</section>
 
-			</div>		
-		</div>
+			</main>
 			
-		
+
+		</div>		
 		
 	</body>
 	
