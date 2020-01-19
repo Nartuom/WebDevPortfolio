@@ -6,9 +6,29 @@
 		<link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700&display=swap" rel="stylesheet">
 	</head>
 	<body>
+
+		<!-- Home -->
+		<section id="canvas-wrap">
+			<canvas id="myCanvas"></canvas>
+			<script src="/scripts/canvas.js"></script>
+			<nav>
+				<ul>
+					<li style="color:#c83f77"><a>HOME</a></li>
+					<li><a>ABOUT</a></li>
+					<li><a>PORTFOLIO</a></li>
+					<li><a>CONTACT</a></li>
+				</ul>
+
+			</nav>
+
+			<div id="intro-wrap">
+				<h1>Thomas <br>Burton-Lawl</h1>
+				<h3>Full Stack Web developer</h3>
+			</div>
+			
+			
+		</section>
 		
-		<canvas id="myCanvas"></canvas>
-		<script src="/scripts/canvas.js"></script>
 			
 
 		<main>
@@ -115,12 +135,14 @@
 				<h2>CONTACT</h2>
 				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.</p>
 				<form>
-					<label>To contact me fill in this form</label>
-					<input type="text" placeholder= "Your message">
-					<input type="text" placeholder= "Your email address">
-					<button>
-						Submit
-					</button>
+					<label for="name" >Your Name*</label> <label>Your Email*</label> 
+					<input type="text" for="name" placeholder= "...Your name"><input type="text" for="email" placeholder= "...Your email address">
+					<label>Your Message</label>
+					<br>
+					<textarea for="message" type="textarea" placeholder="Write your message here"></textarea>
+					<br>
+					<img id="githubIcon" src="/img/Github@2x.png">
+					<button>Submit</button>
 				</form>	
 
 			</div>
