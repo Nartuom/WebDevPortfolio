@@ -1,3 +1,28 @@
+@media(max-width:1500px){
+	#myCanvas{
+		width: 100%;
+		height:auto;
+		max-height:70%;
+	}
+
+}
+
+@media(max-width:1200px){
+	#myCanvas{
+		width: 100%;
+		height:auto;
+		max-height:60%;
+	}
+}
+
+@media(max-width:900px){
+	#myCanvas{
+		width:100%;
+		height:auto;
+		max-height:45%;
+	}
+}
+
 body {
 	background-color: #FFFFFF ;
 	background-size: cover;
@@ -8,18 +33,52 @@ body {
 	overflow-x: hidden;
 }
 
-#canvas-wrap{
-	display:block;
-	max-width:100%;
-	max-height:auto;
-	min-height:250px;
-	margin-bottom:18%;
+nav{
+	position:fixed;
+	width:100%;
+	height:75px;
+	top:0;
+	left:0;
+	background: #274d5A;
+	z-index: 1;
+	padding-left: 10.2%;
+	margin-bottom: 10%;
+}
+nav ul{
+	text-align: center;
+	display:inline-flex;
+	color: #ffffff;
+	list-style-type: none;
+	margin:0;
+	padding:0;
 
 }
+
+nav ul li {
+	font-size:22px;
+	padding:24px 28px 0 0;
+}
+nav a{
+	text-decoration: none
+}
+
+nav a{
+	color: #c83f77;	
+}
+
+#home{
+	display:block;
+	max-width:100%;
+	height:auto;
+	min-height:250px;
+	margin-bottom:5%;
+
+}
+
 #myCanvas{
 	border: 1px solid black;
 	background-color: #274d5A;
-	max-width: 100%;
+	width: 100%;
 	height:auto;
 	min-height: 300px;
 	position: absolute;
@@ -29,18 +88,16 @@ body {
 	/* scroll-snap-align: end; */
 }
 
-nav ul{
-	text-align: center;
-	display:inline-flex;
-	color: #ffffff;
-	list-style-type: none;
-	margin:4px 10.7% 0 10.7%;
-	padding:0;
-}
 
-nav ul li {
-	font-size:22px;
-	padding:20px;
+
+#intro-wrap{
+	margin: 10% 0 5% 10.7%;
+	padding-top:50px;
+	max-width: 100%;
+	height:auto;
+	min-height: 200px;
+	opacity: 0.5;
+	
 }
 
 #intro-wrap h1{
@@ -56,24 +113,17 @@ nav ul li {
 	margin:0;
 
 }
-#intro-wrap{
-	margin: 10% 0 10% 10.7%;
-	max-width: 100%;
-	height:auto;
-	min-height: 100px;
-	
-}
-
 
 
 .margin-wrap {
-	margin: 100px 10.7% 0;
+	margin: 15% 10.7% 0;
 }
+
 
 #bio-container {
 	display: flex;
 	flex-wrap: wrap;
-	position: relative;
+	padding-top: 80px;
 	/* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
 	grid-template-rows: minmax(250px, 334px);
 	grid-column-gap: 30px; */
@@ -149,7 +199,7 @@ h5 {
 	opacity: 0.9;	
 }
 #portfolio-background h2{
-	padding-top: 100px;
+	padding-top: 8%;
 }
 
 .projects-container {
