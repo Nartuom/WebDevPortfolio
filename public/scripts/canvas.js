@@ -17,45 +17,56 @@ requestAnimationFrame(renderLoop);
 
 var ctx = canvas.getContext("2d");
 
-var x = 500;
-var y = 800;
-var dx;
-var dy = -2;
-
-function circles(x, y) {
+function circles(x, y, dy) {
 	this.x = x;
 	this.y = y;
+	this.dy =dy;
 	this.draw = function() {
-
+		ctx.beginPath();
+   		ctx.arc(this.x, this.y, 5, 0, Math.PI *2, false);
+		ctx.strokeStyle = "#44978D";
+		ctx.fillStyle = "#44978D";
+		ctx.fill()
+		ctx.shadowColor = "#367870";
+		ctx.shadowBlur = 5; 	
+		ctx.stroke();
+	}
+	this.update = function(){
+		if(this.y < 300){
+			this.dy = -this.dy;
+		}
+		if(this.y > 700){
+			this.dy = -2;
+		}
+		this.y += this.dy;
+		this.draw();
 	}
 }
 
-function draw(ctx) {
-	ctx.clearRect(0, 0, innerWidth, innerHeight);
-	ctx.beginPath();
-   	ctx.arc(x, y, 10, 0, Math.PI *2, false);
-	ctx.strokeStyle = "white";
-	ctx.fillStyle = "white";
-	ctx.fill()	
-	ctx.stroke();
-	if(y < 200){
-		dy = -dy;
-		console.log(y, dy);
-	}
-	if(y > 800){
-		dy = -2;
-	}
-	y += dy;
-	x + 20;
+var dotsArr =[]
+
+
+for(var i = 0; i < 400; i++){
+	var y = Math.floor(Math.random() * (700 - 300 + 1)+ 300);
+	var x = Math.random() * innerWidth;
+	dotsArr.push(new circles(x, y, -2));
+	// if((y > 200)&&(i < 30)){
+	// 	y -= 20;
+	// } else if((y < 800)&&(i > 30)){
+	// 	y += 20;
+	// }
+	
 }
-var dotsArr =[];
-for(var i =0; i <20; i++){
-	dotsArr.push(new draw(ctx));
-}
+
+
+
 
 function animate(){
 	requestAnimationFrame(animate);
-	draw(ctx);
+	ctx.clearRect(0, 0, innerWidth, innerHeight);
+	for(var i =0; i < dotsArr.length; i++){
+		dotsArr[i].update();
+	}
 }
 animate();
 
