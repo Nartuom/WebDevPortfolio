@@ -30,7 +30,8 @@ body {
 	font-family: 'Dosis', sans-serif;
 	margin:0;
 	padding:0;
-	/* overflow-x: hidden; */
+	overflow-x: hidden;
+	scroll-snap-type: y mandatory;
 }
 
 nav{
@@ -85,7 +86,7 @@ nav a{
 	top:0;
 	left:0;
 	z-index: -1;
-	/* scroll-snap-align: end; */
+	scroll-snap-align: end;
 }
 
 
@@ -97,6 +98,7 @@ nav a{
 	height:auto;
 	min-height: 200px;
 	background: rgba(7, 11, 52, 0.1);
+	scroll-snap-align: start;
 }
 
 #intro-wrap h1{
@@ -177,8 +179,7 @@ h5 {
 	width: 16.1%;
 	min-width:240px;
 	flex-grow:1;
-
-	border: 1px solid black;
+	
 	margin:0 15px 15px 0;
 	padding: 15px 15px 20px 15px;
 } 
@@ -264,15 +265,15 @@ form button {
 /* animation classes */
 
 .slide-in {
-	transition:all .5s;
+	transition:all 1s;
 	opacity:0;
+	transition-timing-function: ease;
 }
 
+
 .slide-left.slide-in { 
-	transform: translateX(-75%) scale(0.95);
-	max-height: 300px;
-	height:auto;
-	width: 16.1%;
+	transform: translateX(-75%) scale(0.90);
+	
 }
 
 .slide-in.active{
@@ -280,7 +281,24 @@ form button {
 	opacity: 1;
 }
 
-
+.slide-in.slide-left.a{
+	transition-delay:0;
+}
+.slide-in.slide-left.b{
+	transition-delay: 0.2s;
+}
+.slide-in.slide-left.c{
+	transition-delay: 0.4s;
+}
+.slide-in.slide-left.d{
+	transition-delay: 0.6s
+}
+.slide-in.slide-left.e{
+	transition-delay: 0.8s;
+}
+.slide-in.slide-left.f{
+	transition-delay: 1s;
+}
 
 
 
