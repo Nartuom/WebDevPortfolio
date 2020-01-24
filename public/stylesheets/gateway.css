@@ -30,7 +30,7 @@ body {
 	font-family: 'Dosis', sans-serif;
 	margin:0;
 	padding:0;
-	overflow-x: hidden;
+	/* overflow-x: hidden; */
 }
 
 nav{
@@ -97,9 +97,6 @@ nav a{
 	height:auto;
 	min-height: 200px;
 	background: rgba(7, 11, 52, 0.1);
-	
-	
-	
 }
 
 #intro-wrap h1{
@@ -107,31 +104,23 @@ nav a{
 	font-size: 6.5vw;
 	font-weight: 600;
 	margin: 0;
-	
 }
 
 #intro-wrap h3{
 	color: #c83f77;
 	font-size: 3vw;
 	margin:0;
-	
-
 }
-
 
 .margin-wrap {
 	margin: 15% 10.7% 0;
 }
 
-
 #bio-container {
 	display: flex;
 	flex-wrap: wrap;
 	padding-top: 80px;
-	/* grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-	grid-template-rows: minmax(250px, 334px);
-	grid-column-gap: 30px; */
-
+	
 }
 
 #bio-container div {
@@ -184,6 +173,7 @@ h5 {
 	font-size: 18px;
 
 	max-height: 300px;
+	height:auto;
 	width: 16.1%;
 	min-width:240px;
 	flex-grow:1;
@@ -271,7 +261,24 @@ form button {
 	grid-column: span 1.5;
 }
 
+/* animation classes */
 
+.slide-in {
+	transition:all .5s;
+	opacity:0;
+}
+
+.slide-left.slide-in { 
+	transform: translateX(-75%) scale(0.95);
+	max-height: 300px;
+	height:auto;
+	width: 16.1%;
+}
+
+.slide-in.active{
+	transform: translateX(0%) scale(1);
+	opacity: 1;
+}
 
 
 
