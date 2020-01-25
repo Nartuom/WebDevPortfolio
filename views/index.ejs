@@ -4,121 +4,149 @@
 		<title>The Gateway</title>
 		<link rel="stylesheet" type="text/css" href="/stylesheets/gateway.css">
 		<link href="https://fonts.googleapis.com/css?family=Dosis:400,600,700&display=swap" rel="stylesheet">
+		
+		
 	</head>
 	<body>
-		
-		<div class="container">
+		<!-- Home -->
+		<section id="home">
 			<canvas id="myCanvas"></canvas>
 			<script src="/scripts/canvas.js"></script>
-			<script>
-				document.getElementById("demo").onmouseover = function() {mouseOver()};
-				document.getElementById("demo").onmouseout = function() {mouseOut()};
-				
-				function mouseOver() {
-					var animate = document.getElementById("demo");
-					  animate.src = "/img/patatapClone.gif";
-					}
+			<nav>
+				<ul>
+					<li style="color:#c83f77"><a href="/">HOME</a></li>
+					<li><a href="#about">ABOUT</a></li>
+					<li><a href="#portfolio-background">PORTFOLIO</a></li>
+					<li><a href="#contact">CONTACT</a></li>
+				</ul>
 
-				function mouseOut() {
-					  document.getElementById("demo").src = "/img/patatapStatic.png";
-					}
-			</script>
+			</nav>
+
+			<div id="intro-wrap">
+				<h1>Thomas <br>Burton-Lawl</h1>
+				<h3>Full Stack Web developer</h3>
+			</div>
 			
-			<div class="wrapper">
-				
-				<section>
-				<div class="bio">	
+			
+		</section>
+		
+			
+	<!--About-->
+		<main>
+			<section id="about" class="margin-wrap">
+				<div id="bio-container" >
 					<div>
 						<h2>ABOUT</h2>
-						<p>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.
 						</p>
 					</div>
-					<div>
-						<img id="cat" src ="/img/spacecat.jpg">	
-					</div>
-					
-					
+					<img src="https://via.placeholder.com/738x334">					
 				</div>
 				
-				<div>
-					<h3>Skills</h3>
-					<div class="skills-container">
-						<div>
-							<img src="/img/html5icon.png">
-							<h5>HTML5</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.</p>
-						</div>
-						<div>
-							<img src="/img/cssIcon.png">
-							<h5>CSS</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						
-						</div>
-							
-						<div>
-							<img src="/img/javascript.png">
-							<h5>JAVASCRIPT</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						</div>
-						
-						<div>
-							<img src="/img/expressjs.jpg">
-							<h5>NODE.JS</h5>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
-						</div>
-						
-						
+				<h3>Skills</h3>
+				<div class="skills-container">
+
+					<div class="slide-in slide-left a">
+						<img src="/img/html5icon.png">
+						<h5>HTML5</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.</p>
 					</div>
+
+					<div class="slide-in slide-left b">
+						<img src="/img/cssIcon.png">
+						<h5>CSS</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+					
+					</div>
+						
+					<div class="slide-in slide-left c">
+						<img src="/img/javascript.png">
+						<h5>JAVASCRIPT</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+					</div>
+					
+					<div class="slide-in slide-left d">
+						<img src="/img/expressjs.jpg">
+						<h5>NODE.JS</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+					</div>
+
+					<div class="slide-in slide-left e">
+						<img src="/img/mongodb-logo.jpg">
+						<h5>MONGODB</h5>
+						<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec.	</p>
+					</div>
+					
+				</div>
+			</section>
+
+			<section id="portfolio-background">
+
+				<div class="margin-wrap">
+
+					<h2>Portfolio</h2>
+
+					<div class="projects-container">
+
+						<div class="projects-thumbnail slide-in slide-left a">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Indoor Counselling, Outdoor Therapy</h4>
+						</div>
+	
+						<div class="projects-thumbnail slide-in slide-left b">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>No mans Son</h4>
+						</div>
+	
+						<div class="projects-thumbnail slide-in slide-left c">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Placeholder</h4>
+						</div>
+	
+						<div class="projects-thumbnail slide-in slide-left d">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Indoor Counselling, Outdoor Therapy</h4>
+						</div>
+	
+						<div class="projects-thumbnail slide-in slide-left e">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>No mans Son</h4>
+						</div>
+	
+						<div class="projects-thumbnail slide-in slide-left f">
+							<img src="https://via.placeholder.com/482x300">
+							<h4>Placeholder</h4>
+						</div>
+	
+					</div>
+				</div>
+			
+			</section>
+		</main>
+	
+		<section id="contact" class="contact-container">
+			<div>
+				<h2>CONTACT</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vehicula enim est, quis volutpat orci tincidunt nec. Nulla maximus sed est id vehicula. Praesent commodo mi accumsan orci feugiat facilisis. Pellentesque dignissim nec dolor vulputate blandit. Curabitur sit amet purus vitae nisl pharetra tempor. Phasellus a urna in leo consectetur iaculis ut eu neque.</p>
+				<form>
+					<label for="name" >Your Name*</label> <label>Your Email*</label> 
+					<input type="text" for="name" placeholder= "...Your name"><input type="text" for="email" placeholder= "...Your email address">
+					<label>Your Message</label>
+					<br>
+					<textarea for="message" type="textarea" placeholder="Write your message here"></textarea>
+					<br>
+					<img id="githubIcon" src="/img/Github@2x.png">
+					<button>Submit</button>
+				</form>	
+
+			</div>
+
+			<img src="/img/Boracay.png">
 								
-				</div>
-				
-				</section>
-			
-				<br>
-			</div>	
-
-				<section class="grey-background">
-					<div>
-						<div class="wrapper" >
-							<h2>Portfolio</h2>
-							<div class="projects-container">
-								<div>
-									<img onmouseover="mouseOver(this)" onmouseout="mouseOur(this)" id="demo" src="/img/patatapStatic.png">
-									<a>Patatap Clone
-										
-									</a></div>
-								<div></div>
-								<div></div>
-							</div>
-						</div>
+		</section>
 
 
-					</div>
-
-				</section>
-			
-			<div class="wrapper">
-
-
-				<section>
-					<div>
-						<form>
-							<label>To contact me fill in this form</label>
-							<input type="text" placeholder= "Your message">
-							<input type="text" placeholder= "Your email address">
-							<button>
-								Submit
-							</button>
-						</form>	
-					</div>
-				</section>
-
-			</div>		
-		</div>
-			
-		
 		
 	</body>
-	
+	<script type="text/javascript" src="/scripts/index.js"></script>
 </html>

@@ -1,106 +1,129 @@
 var canvas = document.querySelector("canvas");
-
-canvas.width = window.innerWidth;
-canvas.height= window.innerHeight;
-
-var c = canvas.getContext("2d");
-
+var ctx = canvas.getContext("2d");
+canvas.onmousemove = mouseMove;
 var innerWidth = window.innerWidth;
 var innerHeight= window.innerHeight;
+// no need for a resize event listener.
+function renderLoop(){
+    // innerWidth / height or containor size
+    if(canvas.width !== innerWidth || canvas.height !== innerHeight){
+        canvas.width = innerWidth;
+        canvas.height = innerHeight;
+    }    
+    // your code
+    requestAnimationFrame(renderLoop);
+}
+requestAnimationFrame(renderLoop);
 
-function createLines(){
-	var x = Math.random() * window.innerWidth;
-	var y = x + 100;
+//Variables
+var dotsArr =[]
+
+var minY = 100;
+var maxY = 800;
+var start = innerWidth/3;
+var fall =true;
+var inc = 50;
+var f  = 0.01;
+var size = 0.5
+var mouseX= 0;
+var mouseY = 0;
+var a;
+var b;
+var distance;
+
+//circle Styles
+var green = "rgba(68, 151, 141, 1)"
+
+function circles(x, y, dy, f,spd,) {
+	this.x 	= x;
+	this.iniX = x;
+	this.y 	=  y;
+	this.dy = dy;
+	this.dx = 1;
+	this.spd = spd ;
+	fall = true;
 	
-	this.draw = function(){
-		c.beginPath();
-		c.moveTo(x, y);
-		c.lineTo(x - 10, y + 50);
-		c.strokeStyle = "#05386B";
-		c.stroke();	
+	this.draw = function() {
+		ctx.beginPath();
+		ctx.globalAlpha = f;
+   		ctx.arc(this.x, this.y, size, 0, Math.PI *2, false);
+		ctx.strokeStyle = "rgba(68, 151, 141, 1)";
+		ctx.fillStyle = "rgba(68, 151, 141, 1)";
+		ctx.fill()
+		ctx.shadowColor = "rgba(68, 151, 141, 1)";
+		ctx.shadowBlur = 5; 	
+		ctx.stroke();
+		
 	}
-	this.draw();
+	this.update = function(){
+		// this.a = this.x - mouseX;
+		// this.b = this.y - mouseY;
+		// this.distance = Math.sqrt(a*a + b*b);
+		// console.log(this.distance);
+
+		// if(Math.floor((mouseX - this.x) < 50 )){
+		// 		this.x -= 0.5;
+
+		// } else if(Math.floor((this.x - mouseX) < 50)){
+		// 	this.x += 0.5;
+		// } 
+			
+		// while(this.x !== this.iniX && mouseX - this.x > 50){
+		// 		if(this.iniX > this.x){
+		// 			this.x = this.x +1;
+		// 		}
+		// 		this.x = this.x-1;
+		// 	};
+	
+		if(this.x + this.dx > canvas.width || this.x + this.dx < 0){
+			this.dx = -this.dx;
+		}
+		if((this.y < maxY)&&(this.falling == true)){
+			this.dy = this.spd;
+			this.falling = true;
+		}
+		if(this.y < minY){
+			this.dy = this.spd;
+			this.falling = true;
+		}
+		if(this.y > maxY){
+			this.dy = -this.spd;
+			this.falling = false;	
+		}
+		this.y += this.dy;
+		this.x += this.dx;
+		this.draw();
+	}
 }
 
-var lineArr = [];
-for(var i = 0; i <= 20; i++){
-	var circle = new createLines();
-	// var x = Math.random() * (innerWidth - x) + x;
-	// var y = Math.random() * (innerHeight - y) +y;
-	// var dx = (Math.random()- 0.5);
-	lineArr.push(new createLines());
+
+for(let i = 0; i < 350; i++){
+	let x = Math.floor(start + inc);
+	let dy = (Math.random() * 2);
+	let spd = dy;
+	let y = Math.floor(Math.random() * (700 - 100 + 1)+ 100);
+	
+	dotsArr.push(new circles(x, y, dy, f, fall, spd));
+	inc  = inc + Math.random() * 5 + 1;
+	if(f <1){
+		f = f + 0.005;
+	}	
 }
 
+function mouseMove(evt){
+	console.log("click!S");
+	mouseX = evt.clientX;
+	mouseY = evt.clientY;
+}
 
-// function animate(){
-// 	requestAnimationFrame(animate);
-// 	c.clearRect(0,0, innerWidth, innerHeight);
-	
-// 	for(var i =0; i < lineArr.length; i++){
-// 	lineArr[i].update();
-// 	}
-// };
+function animate(){
+	requestAnimationFrame(animate);
+	ctx.clearRect(0, 0, innerWidth, innerHeight);
 
-
-
-
-
-
-
-// Lines
-// c.beginPath();
-// c.moveTo(100, 600);
-// c.lineTo(300, 200);
-// c.strokeStyle = "#05386B";
-// c.stroke();
-
-//arc /circle
-// var x = 50;
-// var dx= 5;
-// var y = 250;
-// var dy = 8;
-// var radius = 1;
-// function animate() {
-// 	requestAnimationFrame(animate);
-// 	//clear last drawn shape
-// 	// c.clearRect(0, 0, innerWidth, innerHeight);
-	
-// 	c.beginPath();
-// 	c.arc(x, y, radius, 0, Math.PI * 2, false);
-// 	c.strokeStyle = "#05386B";
-// 	c.stroke();
-	
-// 	if(x + radius > innerWidth || x - radius < 0){
-// 		dx = -dx;	
-// 	}
-	
-// 	if(y + radius > innerHeight || y - radius < 0 ){
-// 		dy = -dy;
-// 	}
-	
-// 	x += dx;
-// 	y += dy;
-	
-// }
-
-// animate();
+	for(var i = 0; i < dotsArr.length; i++){
+		dotsArr[i].update();
+	}
+}
+animate();
 
 
-// create random lines and circles
-
-// for(var i = 0; i < 5; i++){
-// 	var x = Math.random() * window.innerWidth;
-// 	var y = Math.random() * window.innerHeight;
-// 	// Lines
-// 	c.beginPath()
-// 	c.moveTo(x, 600);
-// 	c.lineTo(y, 200);
-// 	c.strokeStyle = "#05386B";
-// 	//Circles
-// 	c.arc(x, y, 20, 0, Math.PI * 2, false);
-// 	c.strokeStyle = "#05386B";
-// 	c.stroke();
-// }
-
-
-	 
