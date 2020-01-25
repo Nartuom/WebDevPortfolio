@@ -1,5 +1,6 @@
 var canvas = document.querySelector("canvas");
 var ctx = canvas.getContext("2d");
+canvas.onmousemove = mouseMove;
 var innerWidth = window.innerWidth;
 var innerHeight= window.innerHeight;
 // no need for a resize event listener.
@@ -24,16 +25,24 @@ var fall =true;
 var inc = 50;
 var f  = 0.01;
 var size = 0.5
+var mouseX= 0;
+var mouseY = 0;
+var a;
+var b;
+var distance;
 
 //circle Styles
 var green = "rgba(68, 151, 141, 1)"
 
 function circles(x, y, dy, f,spd,) {
 	this.x 	= x;
+	this.iniX = x;
 	this.y 	=  y;
 	this.dy = dy;
+	this.dx = 1;
 	this.spd = spd ;
 	fall = true;
+	
 	this.draw = function() {
 		ctx.beginPath();
 		ctx.globalAlpha = f;
@@ -47,6 +56,28 @@ function circles(x, y, dy, f,spd,) {
 		
 	}
 	this.update = function(){
+		// this.a = this.x - mouseX;
+		// this.b = this.y - mouseY;
+		// this.distance = Math.sqrt(a*a + b*b);
+		// console.log(this.distance);
+
+		// if(Math.floor((mouseX - this.x) < 50 )){
+		// 		this.x -= 0.5;
+
+		// } else if(Math.floor((this.x - mouseX) < 50)){
+		// 	this.x += 0.5;
+		// } 
+			
+		// while(this.x !== this.iniX && mouseX - this.x > 50){
+		// 		if(this.iniX > this.x){
+		// 			this.x = this.x +1;
+		// 		}
+		// 		this.x = this.x-1;
+		// 	};
+	
+		if(this.x + this.dx > canvas.width || this.x + this.dx < 0){
+			this.dx = -this.dx;
+		}
 		if((this.y < maxY)&&(this.falling == true)){
 			this.dy = this.spd;
 			this.falling = true;
@@ -60,6 +91,7 @@ function circles(x, y, dy, f,spd,) {
 			this.falling = false;	
 		}
 		this.y += this.dy;
+		this.x += this.dx;
 		this.draw();
 	}
 }
@@ -76,6 +108,12 @@ for(let i = 0; i < 350; i++){
 	if(f <1){
 		f = f + 0.005;
 	}	
+}
+
+function mouseMove(evt){
+	console.log("click!S");
+	mouseX = evt.clientX;
+	mouseY = evt.clientY;
 }
 
 function animate(){

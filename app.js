@@ -6,8 +6,8 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
 	res.render("index");
 });
-var port = process.env.PORT || 3000;
-app.listen(port, function(){
-	console.log("server listening on PORT 3000");
-
+// var port = process.env.PORT || 3000;
+var url = process.env.DATABASEURL;
+app.listen(process.env.PORT||3000, process.env.IP, function(){
+	console.log("Server Live at " + url);
 });
