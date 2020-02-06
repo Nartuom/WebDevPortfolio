@@ -1,129 +1,164 @@
-var canvas = document.querySelector("canvas");
-var ctx = canvas.getContext("2d");
-canvas.onmousemove = mouseMove;
-var innerWidth = window.innerWidth;
-var innerHeight= window.innerHeight;
-// no need for a resize event listener.
-function renderLoop(){
-    // innerWidth / height or containor size
-    if(canvas.width !== innerWidth || canvas.height !== innerHeight){
-        canvas.width = innerWidth;
-        canvas.height = innerHeight;
-    }    
-    // your code
-    requestAnimationFrame(renderLoop);
-}
-requestAnimationFrame(renderLoop);
 
-//Variables
-var dotsArr =[]
-
-var minY = 100;
-var maxY = 800;
-var start = innerWidth/3;
-var fall =true;
-var inc = 50;
-var f  = 0.01;
-var size = 0.5
-var mouseX= 0;
-var mouseY = 0;
-var a;
-var b;
-var distance;
-
-//circle Styles
-var green = "rgba(68, 151, 141, 1)"
-
-function circles(x, y, dy, f,spd,) {
-	this.x 	= x;
-	this.iniX = x;
-	this.y 	=  y;
-	this.dy = dy;
-	this.dx = 1;
-	this.spd = spd ;
-	fall = true;
+window.onload = function(){
+	const canvas = document.querySelector("canvas");
+	const ctx = canvas.getContext("2d");
+	const innerWidth = window.innerWidth;
+	const innerHeight= window.innerHeight;
+	const spaceFix = document.getElementById("home");
 	
-	this.draw = function() {
-		ctx.beginPath();
-		ctx.globalAlpha = f;
-   		ctx.arc(this.x, this.y, size, 0, Math.PI *2, false);
-		ctx.strokeStyle = "rgba(68, 151, 141, 1)";
-		ctx.fillStyle = "rgba(68, 151, 141, 1)";
-		ctx.fill()
-		ctx.shadowColor = "rgba(68, 151, 141, 1)";
-		ctx.shadowBlur = 5; 	
-		ctx.stroke();
+	function renderLoop(){	
 		
-	}
-	this.update = function(){
-		// this.a = this.x - mouseX;
-		// this.b = this.y - mouseY;
-		// this.distance = Math.sqrt(a*a + b*b);
-		// console.log(this.distance);
+		function resize(){
+			spaceFix.style.height == canvas.height;
+			console.log("resizing");
+			if(canvas.width !== innerWidth && canvas.height !== innerHeight){
+				if(innerWidth < innerHeight){
+					canvas.height = innerWidth / 1.5;
+					spaceFix.style.height = innerWidth / 1.5;
+					canvas.width = innerWidth;
+				} else {
+					canvas.width = innerWidth;
+					canvas.height = innerHeight;
+					spaceFix.style.height = innerHeight;
+				}
+				
+			}
+		}
+		resize();
+		
+		window.addEventListener("mousemove", function(event) {
+			mouse.x = event.x;
+			mouse.y = event.y;
+		});
 
-		// if(Math.floor((mouseX - this.x) < 50 )){
-		// 		this.x -= 0.5;
+		
+		//Variables
+		var dotsArr =[]
+		var mouse = {
+			x: undefined,
+			y: undefined
+		}
 
-		// } else if(Math.floor((this.x - mouseX) < 50)){
-		// 	this.x += 0.5;
-		// } 
+		var minY = (canvas.height / 10) * 2;
+		var maxY = (canvas.height / 10) * 9;
+		var inc = 50;
+		var f  = 0;
+		var size = 2.5;
+		var fall = Boolean;
+
+		//circle Styles
+		var colorArr = [
+			"#FC3A8B",
+			"#ffffff",
+			"#4C5BFF"
+		]
+
+		// draw circles function
+		function draw(x, y, color){
+			this.x = x;
+			this.y = y;
+			this.color = color;
+			ctx.beginPath();
+			ctx.globalAlpha = f;
+			ctx.arc(this.x, this.y, size, 0, Math.PI *2, false);
+			ctx.strokeStyle = this.color;
+			ctx.fillStyle = this.color;
+			ctx.shadowColor = "white";
+			ctx.shadowBlur = 10;	
+			ctx.fill();	
+			ctx.stroke();
+
+		}
+
+		//create circle objects
+		function circles(x, y, dy, color, fall, spd,) {
+			this.x 	= x;
+			this.iniX = x;
+			this.y 	=  y;
+			this.dy = dy;
+			this.dx = 0.2;
+			this.color = color;
+			this.spd = spd ;
+			this.size = size;
+			fall = true;
+
+			draw(x, y, color);
+
+			this.update = function(){
+
+				if((this.y < maxY)&&(this.fall == true)){
+					this.dy = this.spd;
+					this.fall = true;
+				}
 			
-		// while(this.x !== this.iniX && mouseX - this.x > 50){
-		// 		if(this.iniX > this.x){
-		// 			this.x = this.x +1;
-		// 		}
-		// 		this.x = this.x-1;
-		// 	};
-	
-		if(this.x + this.dx > canvas.width || this.x + this.dx < 0){
-			this.dx = -this.dx;
+				if(this.x + this.dx > canvas.width || this.x + this.dx < 0){
+					this.dx = -(this.dx * 0.5);
+				}
+				
+				if(this.y + this.dy > maxY || this.y + this.dy < minY){
+					this.dy = -(this.dy * 0.5);
+					this.fall = false;	
+				}				
+
+				//interact with Mouse
+				// if mouse and dot coords ar within 50px
+				if (mouse.x - this.x < 50 && mouse.x - this.x > -50 
+					&& mouse.y - this.y < 50 && mouse.y - this.y > -50) {
+						//move top left
+						if(mouse.x > this.x && mouse.y > this.y){
+							this.dx -= Math.ceil(Math.random() * 1);
+							this.dy -= Math.ceil(Math.random() * 1);
+						//move bottom right	
+						}else if(mouse.x < this.x && mouse.y < this.y){
+							this.dx += Math.ceil(Math.random() * 1);
+							this.dy += Math.ceil(Math.random() * 1);
+						//move bottom left	
+						} else if(mouse.x > this.x && mouse.y < this.y){
+							this.dx -= Math.ceil(Math.random() * 1);
+							this.dy += Math.ceil(Math.random() * 1);
+						//move top right						
+						} else if(mouse.x < this.x && mouse.y > this.y){
+							this.dx += Math.ceil(Math.random() * 1);
+							this.dy -= Math.ceil(Math.random() * 1);
+						}			
+				}
+
+				this.y += this.dy;
+				this.x += this.dx;
+				draw(this.x, this.y, this.color);
+			}
+			
 		}
-		if((this.y < maxY)&&(this.falling == true)){
-			this.dy = this.spd;
-			this.falling = true;
+
+
+		for(var i = 0; i < 100; i++){
+			let x = Math.floor(inc);
+			let y = Math.floor(Math.random() * (maxY - 100)+ 100);
+			let color = colorArr[Math.floor(Math.random() * colorArr.length)];
+			let dy = (Math.random() - 0.5);
+			let spd = dy;	
+			dotsArr.push(new circles(x, y, dy, color, fall, spd));
+			inc  = inc + Math.random() * 35 + 1;
+			if(f < 1){
+				f = f + 0.05;
+			}	
 		}
-		if(this.y < minY){
-			this.dy = this.spd;
-			this.falling = true;
+
+		function animate(){
+			requestAnimationFrame(animate);
+			ctx.clearRect(0, 0, innerWidth, innerHeight);
+			dotsArr.forEach(function(circles){
+				circles.update();
+			});
 		}
-		if(this.y > maxY){
-			this.dy = -this.spd;
-			this.falling = false;	
+
+		animate();
 		}
-		this.y += this.dy;
-		this.x += this.dx;
-		this.draw();
-	}
+
+	requestAnimationFrame(renderLoop);
 }
+// window.addEventListener("onresize", location.reload());
 
 
-for(let i = 0; i < 350; i++){
-	let x = Math.floor(start + inc);
-	let dy = (Math.random() * 2);
-	let spd = dy;
-	let y = Math.floor(Math.random() * (700 - 100 + 1)+ 100);
-	
-	dotsArr.push(new circles(x, y, dy, f, fall, spd));
-	inc  = inc + Math.random() * 5 + 1;
-	if(f <1){
-		f = f + 0.005;
-	}	
-}
-
-function mouseMove(evt){
-	console.log("click!S");
-	mouseX = evt.clientX;
-	mouseY = evt.clientY;
-}
-
-function animate(){
-	requestAnimationFrame(animate);
-	ctx.clearRect(0, 0, innerWidth, innerHeight);
-
-	for(var i = 0; i < dotsArr.length; i++){
-		dotsArr[i].update();
-	}
-}
-animate();
 
 
