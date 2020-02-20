@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/Nartuom/WebDevPortfolio/issues"
   },
-  "homepage": "https://github.com/Nartuom/WebDevPortfolio#readme"
+  "homepage": "https://github.com/Nartuom/WebDevPortfolio#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.20.1"
+  }
 }

@@ -6,6 +6,7 @@ app.use(express.static('public'));
 app.get("/", function(req, res){
 	res.render("index");
 });
+
 // var port = process.env.PORT || 3000;
 var url = process.env.DATABASEURL;
 app.listen(process.env.PORT||3000, process.env.IP, function(){

@@ -1,26 +1,16 @@
-@media(max-width:1500px){
-	#myCanvas{
-		width: 100%;
-		height:auto;
-		max-height:70%;
-	}
-
+@media(max-width: 1900px) {
+	
+}
+@media(max-width:1400px){
+	
 }
 
-@media(max-width:1200px){
-	#myCanvas{
-		width: 100%;
-		height:auto;
-		max-height:60%;
-	}
+@media(max-width:800px){
+	
 }
 
-@media(max-width:900px){
-	#myCanvas{
-		width:100%;
-		height:auto;
-		max-height:45%;
-	}
+@media(max-width:400px){
+	
 }
 
 body {
@@ -29,8 +19,12 @@ body {
 	color: #000000; 
 	font-family: 'Dosis', sans-serif;
 	margin:0;
-	padding:0;
+	padding-top:20px;
+	height: 100%;
+	width:100%;
+	position: relative;
 	overflow-x: hidden;
+	overflow-y: scroll;
 	scroll-snap-type: y mandatory;
 }
 
@@ -41,7 +35,7 @@ nav{
 	top:0;
 	left:0;
 	background: #070B34;
-	z-index: 1;
+	z-index: 2;
 	padding-left: 10.2%;
 	margin-bottom: 10%;
 }
@@ -68,75 +62,88 @@ nav a{
 }
 
 #home{
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
 	display:block;
-	max-width:100%;
-	height:auto;
-	min-height:250px;
-	margin-bottom:5%;
-
+	overflow: hidden;
+	position: relative;
+	border-bottom: 10px solid #909090 ;
 }
 
 #myCanvas{
 	border: 1px solid black;
 	background-color: #070B34;
-	width: 100%;
-	height:auto;
-	min-height: 300px;
+	width: 100vw;
+	height: auto;
 	position: absolute;
 	top:0;
 	left:0;
-	z-index: -1;
 	scroll-snap-align: end;
 }
-
-
 
 #intro-wrap{
 	margin: 10% 0 5% 10.7%;
 	padding-top:50px;
-	max-width: 35%;
-	height:auto;
-	min-height: 200px;
+	width: 45%;
+	height:150pt;
 	background: rgba(7, 11, 52, 0.1);
 	scroll-snap-align: start;
+	position: absolute;
+	z-index: 1;
 }
 
 #intro-wrap h1{
 	color: #ffffff;
-	font-size: 6.5vw;
+	font-size: 6vw;
 	font-weight: 600;
 	margin: 0;
+	text-transform: uppercase;
+	
 }
 
 #intro-wrap h3{
 	color: #c83f77;
 	font-size: 3vw;
 	margin:0;
+	text-transform: uppercase;
 }
 
 .margin-wrap {
-	margin: 15% 10.7% 0;
-}
-
-#bio-container {
-	display: flex;
-	flex-wrap: wrap;
-	padding-top: 80px;
+	margin: 5.3% 10.7% 0;
 	
 }
 
-#bio-container div {
+.bio-container {
+	display: flex;
+	flex-wrap: wrap;
+	height:500px;	
+}
+
+.bio-container p {
+	max-width: 50%;
 	float:left;
-	width:45%;
 	padding-right: 20px;
 	font-size: 22px;
-	flex-grow:1;
 	justify-content: space-evenly;
+	margin:0;
 }
-#bio-container img{
+
+.polaroid {
+	text-align: center;
+	max-width: 45%;
+	max-height:400px;
 	float: right;
-	max-width: 100%;
-	border: 1px solid black;
+	object-fit: contain;
+}
+.polaroid img{
+	width: 80%;
+	height: auto;
+	
+	background-color: white;
+  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	margin-bottom: 25px;
 }
 
 h2 {
