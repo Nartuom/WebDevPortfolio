@@ -1,25 +1,20 @@
-
 window.onload = function(){
 	const canvas = document.querySelector("canvas");
 	const ctx = canvas.getContext("2d");
 	const innerWidth = window.innerWidth;
 	const innerHeight= window.innerHeight;
-	const spaceFix = document.getElementById("home");
-	
+
 	function renderLoop(){	
 		
 		function resize(){
-			spaceFix.style.height == canvas.height;
 			console.log("resizing");
 			if(canvas.width !== innerWidth && canvas.height !== innerHeight){
 				if(innerWidth < innerHeight){
 					canvas.height = innerWidth / 1.5;
-					spaceFix.style.height = innerWidth / 1.5;
 					canvas.width = innerWidth;
 				} else {
 					canvas.width = innerWidth;
 					canvas.height = innerHeight;
-					spaceFix.style.height = innerHeight;
 				}
 				
 			}

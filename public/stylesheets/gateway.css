@@ -65,7 +65,9 @@ nav a{
 	top:0;
 	left:0;
 	width:100%;
-	height:auto;
+	height:100%;
+	display:block;
+	overflow: hidden;
 	position: relative;
 	border-bottom: 10px solid #909090 ;
 }
@@ -116,7 +118,7 @@ nav a{
 .bio-container {
 	display: flex;
 	flex-wrap: wrap;
-	height:500px;		
+	height:500px;	
 }
 
 .bio-container p {

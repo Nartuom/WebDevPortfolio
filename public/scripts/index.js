@@ -46,9 +46,6 @@ function checkSlide(){
     sliders.forEach(function(slider, index ){
         //halfway through the image in relation to half the window
         let slideInAt = (window.pageYOffset + window.innerHeight) + slider.offsetHeight/4;
-        console.log(slider.offsetHeight)
-        console.log (slideInAt);
-        console.log(window.scrollY);
         //bottom of the image
         let sliderBottom = slider.offsetTop + slider.offsetHeight;      
         //is the image half visible
@@ -66,7 +63,15 @@ function checkSlide(){
     });
 }   
 
-
+window.addEventListener("resize", function(){
+    let spaceFix = document.getElementById("home").style.height;
+    let canvas = document.getElementById("myCanvas").height;
+    console.log("fixheight = " + spaceFix);
+    console.log("canvas = " + canvas);
+    if(spaceFix !== canvas){
+        spaceFix = canvas;   
+    }
+});
 window.addEventListener("scroll", function(){
     debounce(checkSlide(), 300, true);
 });
