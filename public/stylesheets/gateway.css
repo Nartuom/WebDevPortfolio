@@ -2,10 +2,18 @@
 	
 }
 @media(max-width:1400px){
-	
+	.text-wrap {
+		padding-left:10.2vw;
+		padding-right:10.2vw;
+	}
 }
 
 @media(max-width:800px){
+	.text-wrap {
+		padding-bottom:8vh;
+		padding-left: 10.2vw;
+		padding-right:10.2vw;
+	}
 	
 }
 
@@ -132,10 +140,11 @@ h5 {
 	flex-grow: 1;
 }
 .about p {
-	padding-right: 2rem;
-	font-size: 2rem;
+	padding: 0 2rem 0 0;
+	font-size: calc(1.5vh + 0.5vw);
 	font-family: "Calibri";
 }
+
 .image-wrap {
 	display: flex;
 	width: 48%;
