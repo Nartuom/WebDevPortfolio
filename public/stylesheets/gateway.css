@@ -16,14 +16,13 @@
 body {
 	background-color: #FFFFFF ;
 	background-size: cover;
-	color: #000000; 
+	color: #1A1A1D; 
 	font-family: 'Dosis', sans-serif;
 	margin:0;
 	padding-top:20px;
 	height: 100%;
 	width:100%;
 	position: relative;
-	overflow-x: hidden;
 	overflow-y: scroll;
 	scroll-snap-type: y mandatory;
 }
@@ -31,10 +30,10 @@ body {
 nav{
 	position:fixed;
 	width:100%;
-	height:75px;
+	height:8.5vh;
 	top:0;
 	left:0;
-	background: #070B34;
+	background: #1A1A1D;
 	z-index: 2;
 	padding-left: 10.2%;
 	margin-bottom: 10%;
@@ -42,7 +41,7 @@ nav{
 nav ul{
 	text-align: center;
 	display:inline-flex;
-	color: #ffffff;
+	color: #950740;
 	list-style-type: none;
 	margin:0;
 	padding:0;
@@ -50,7 +49,8 @@ nav ul{
 }
 
 nav ul li {
-	font-size:22px;
+	font-size:calc(2vh + 0.5vw);
+	font-weight: 700;
 	padding:24px 28px 0 0;
 }
 nav a{
@@ -58,187 +58,172 @@ nav a{
 }
 
 nav a{
-	color: #c83f77;	
+	color: #950740;;	
 }
 
-#home{
-	top:0;
-	left:0;
-	width:100%;
-	height:100%;
-	display:block;
-	overflow: hidden;
-	position: relative;
-	border-bottom: 10px solid #909090 ;
+.left-margin {
+	margin-left: 10.2vw;
+}
+.right-margin {
+	margin-right: 10.2vw;
 }
 
-#myCanvas{
-	border: 1px solid black;
-	background-color: #070B34;
+.container {
+	display: grid;
 	width: 100vw;
-	height: auto;
-	position: absolute;
-	top:0;
-	left:0;
-	scroll-snap-align: end;
+	grid-template-columns: repeat(4, 25vw);
+	grid-template-rows: repeat(2, minmax(auto, 50vh));
 }
 
-#intro-wrap{
-	margin: 10% 0 5% 10.7%;
-	padding-top:50px;
-	width: 45%;
-	height:150pt;
-	background: rgba(7, 11, 52, 0.1);
-	scroll-snap-align: start;
-	position: absolute;
-	z-index: 1;
+.grid-item {
+	grid-column:span 4;
+}
+/* Home Section */
+.grid-item.home{
+	grid-column: span 4;
+	grid-row: span 2;
+	width: 100vw;
+	min-width: 360px;
+	background:  #1A1A1D;
 }
 
-#intro-wrap h1{
-	color: #ffffff;
-	font-size: 6vw;
-	font-weight: 600;
-	margin: 0;
-	text-transform: uppercase;
-	
+h1 {
+	font-size: calc(15vh + 0.8vw);
+	font-weight: 500;
+	color: #FFFFFF;
 }
-
-#intro-wrap h3{
-	color: #c83f77;
-	font-size: 3vw;
-	margin:0;
-	text-transform: uppercase;
-}
-
-.margin-wrap {
-	margin: 5.3% 10.7% 0;
-	
-}
-
-.bio-container {
-	display: flex;
-	flex-wrap: wrap;
-	height:500px;	
-}
-
-.bio-container p {
-	max-width: 50%;
-	float:left;
-	padding-right: 20px;
-	font-size: 22px;
-	justify-content: space-evenly;
-	margin:0;
-}
-
-.polaroid {
-	text-align: center;
-	max-width: 45%;
-	max-height:400px;
-	float: right;
-	object-fit: contain;
-}
-.polaroid img{
-	width: 80%;
-	height: auto;
-	
-	background-color: white;
-  	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-	margin-bottom: 25px;
-}
-
 h2 {
-	font-size: 100px;
-	color: #274D5A;
-	text-transform: uppercase;
-	font-weight: 600;
-	margin:0 0;
-	padding-bottom: 27px;
+	font-size: calc(10vh + 0.5vw);
+	font-weight: 400;
+	color: #C3073F;
+	margin: 8.5vh 0 0;
+	padding-right: 2rem;
 }
-
 h3 {
-	font-size: 50px;
+	font-size: 8vh;
+	font-weight: 400;
 	color: #274D5A;
-	text-transform:uppercase;
-	font-weight: 600;
-	margin: 70px 0 30px 0
-}
+	margin: 8.5vh 10.2vw 2rem;
 
+}
+h4 {
+	font-size: 6vh;
+	color: #c83f77;
+}
 h5 {
-	color: #274D5A;
-	font-size:22px;
+	font-size: 2vh;
+	font-weight: 400;
+	margin: 0;
+	padding: 0.75rem 0.75vw;
 }
-
-.skills-container {
-	display:flex;
+/* About section */
+.grid-item.about {
+	grid-column: span 4;
+	display: inline-flex;
 	flex-wrap: wrap;
-	padding: 10px 0;
-	margin:36px 0 100px 0;
-	max-height:auto;
-	max-width: 100%;	
-}
-
-.skills-container div{
-	text-align:center;
-	font-size: 18px;
-
-	max-height: 300px;
-	height:auto;
-	width: 16.1%;
-	min-width:240px;
-	flex-grow:1;
-	
-	margin:0 15px 15px 0;
-	padding: 15px 15px 20px 15px;
-} 
-
-.skills-container div img{
-	height: 125px;
-	width: auto;
-}
-
-#portfolio-background{
-	background-color: #e8e8e8;
-	opacity: 0.9;	
-}
-#portfolio-background h2{
-	padding-top: 8%;
-}
-
-.projects-container {
-	display:grid;
-	grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-	grid-column-gap: 15px;
-	grid-row-gap:15px;
-	
-}
-
-.projects-thumbnail{
-	width:100%;
-	
-}
-
-.contact-container{
-	display:flex;
 	height: 100%;
-	margin: 10.2% 0 0 10.7%;
-	font-size: 22px;
-	padding:15px;
+	width: 100vw;
+	justify-content: space-evenly;
 }
-.contact-container img{
-	float: right;
-	height:980px;
-	width:auto;
-	margin:0;
+.text-wrap {
+	width: 40.2%;
+	min-width: 500px;
+	padding-left: 10.2vw;
+	flex-grow: 1;
+}
+.about p {
+	padding-right: 2rem;
+	font-size: 2rem;
+	font-family: "Calibri";
+}
+.image-wrap {
+	display: flex;
+	width: 48%;
+	flex-grow: 1;	
+}
+.image-wrap img {
+	object-fit: cover;
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	
+}
+/* Skills Section */
+.grid-item.skills {
+	grid-column: span 4;
+	grid-row: span 2;
+	display: inline-flex;
+	flex-wrap: wrap;
+	margin: 0 10.2vw ;
+	justify-content: space-evenly;
 }
 
+.skill {
+	height:32vh;
+	width: 12vw;
+	min-width: 300px;
+	margin-top: 2rem;
+	padding: 2rem 2rem;
+}
+.skill img {
+	object-fit: contain;
+	height: auto;
+	width: 7.8vw;
+}
+/* portfolio Section */
+.background-grey {
+	background: #4e4e50;
+}
+.background-grey h2 {
+	margin-left: 10.2vw;
+	font-weight: 400;
+	color: #C3073F;
+}
+
+.grid-item.portfolio {
+	display:inline-flex;
+	flex-wrap: wrap;
+	grid-column: span 4;
+	grid-row: span 2;
+	padding: 0 10.2vw;
+	height: 100%;
+}
+.projects-thumbnail {
+	min-width: 300px;
+	width: 25vw;
+	height: 32vh;
+	padding: 2rem 0.75vw 4rem;
+	margin-bottom: 5.2vh;
+}
+.projects-thumbnail a {
+	text-decoration: none;
+}
+.projects-thumbnail a:visited {
+	text-decoration: none;
+	color: black;
+}
+.projects-thumbnail img {
+	object-fit: contain;
+	height: 100%;
+	width: 100%; 
+}
+/* Contact section */
+
+.grid-item.contact {
+	display:inline-flex;
+	flex-wrap: wrap;
+	grid-column: span 4;
+	grid-row: span 2;
+}
+/* Form */
 form {
 	display:grid;
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 20px;
 	padding-right:20px;
-
-	
+	font-size:calc(1.5vh + 0.5vw);
+	font-family: "Calibri";
 }
 
 form input {
@@ -259,15 +244,29 @@ form textarea{
 	padding:10px;
 }
 
-#githubIcon{
-	grid-column:1;
-	height:48px;
-	width:48px;
+form button {
+	grid-column: 1;
+	padding: 10px;
 }
 
-form button {
-	grid-column: span 1.5;
+#contact img {
+	width: 100%;
+	min-width: 360px;
+
 }
+
+
+/* #myCanvas{
+	border: 1px solid black;
+	background-color: #070B34;
+	width: 100vw;
+	height: auto;
+	position: absolute;
+	top:0;
+	left:0;
+	scroll-snap-align: end;
+} */
+
 
 /* animation classes */
 
