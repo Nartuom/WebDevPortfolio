@@ -1,21 +1,21 @@
 //Nasa api setup
-var req = new XMLHttpRequest();
-var url = "https://api.nasa.gov/planetary/apod?api_key="
-var api_key= "b0wawz6eOUSBRMbmmYbeNkLp2GZC5HnIoQ5dBfe1"
+// var req = new XMLHttpRequest();
+// var url = "https://api.nasa.gov/planetary/apod?api_key="
+// var api_key= "b0wawz6eOUSBRMbmmYbeNkLp2GZC5HnIoQ5dBfe1"
 
-req.open("GET", url + api_key, true);
-req.send();
+// req.open("GET", url + api_key, true);
+// req.send();
 
-req.addEventListener("load", function(){
-    if(req.status == 200 && req.readyState == 4){
-        var response = JSON.parse(req.responseText);
-        if(response.media_type == "video"){
-            document.getElementById("space").src = "https://apod.nasa.gov/apod/image/2002/ZetaOph_spitzer_960.jpg";
-        } else {
-            document.getElementById("space").src = response.url;
-        } 
-    }
-});
+// req.addEventListener("load", function(){
+//     if(req.status == 200 && req.readyState == 4){
+//         var response = JSON.parse(req.responseText);
+//         if(response.media_type == "video"){
+//             document.getElementById("space").src = "https://apod.nasa.gov/apod/image/2002/ZetaOph_spitzer_960.jpg";
+//         } else {
+//             document.getElementById("space").src = response.url;
+//         } 
+//     }
+// });
 
 
 function debounce(func, wait, immediate){
@@ -38,7 +38,9 @@ function debounce(func, wait, immediate){
 	};
 };
 //select Sliding elements on left
-var sliders = document.querySelectorAll(".slide-in");
+const sliders = document.querySelectorAll(".slide-in");
+//select h1 to slidedown
+
 
 
 // Check if sliding elements are halfway on screen then add/ remove slide class.
@@ -61,17 +63,23 @@ function checkSlide(){
         }
 
     });
-}   
+}
 
-window.addEventListener("resize", function(){
-    let spaceFix = document.getElementById("home").style.height;
-    let canvas = document.getElementById("myCanvas").height;
-    console.log("fixheight = " + spaceFix);
-    console.log("canvas = " + canvas);
-    if(spaceFix !== canvas){
-        spaceFix = canvas;   
-    }
-});
+//slide in script for h1 and h4 on landing page
+const slideDown = document.querySelectorAll("h1");
+const title = document.getElementById("jobRole");
+function myName(){
+    slideDown.forEach(function(slider, index){
+        slider.classList.add("active");
+    });
+    title.classList.add("active");
+}
+
+window.onload = function(){
+    myName();
+}
+
+
 window.addEventListener("scroll", function(){
     debounce(checkSlide(), 300, true);
 });
