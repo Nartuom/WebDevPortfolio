@@ -22,13 +22,14 @@ nav{
 	z-index: 2;
 	padding: 0 10.2%;
 	margin-bottom: 10%;
+	border-bottom:1px solid #C3073F;
 }
 nav ul{
 	text-align: center;
 	display:inline-flex;
 	color: #c83f77;
 	list-style-type: none;
-	margin:0;
+	margin: auto;
 	padding:0;
 	justify-content: space-evenly;
 
@@ -41,7 +42,7 @@ nav ul li {
 }
 nav a{
 	text-decoration: none;
-	padding-right: 2vw;
+	padding-right: 4.2vw;
 }
 
 nav a{
@@ -99,7 +100,8 @@ h3 {
 	font-size: calc(8vh + 0.5vw);
 	font-weight: 400;
 	color: #274D5A;
-	margin: 8.5vh 0 0;
+	margin: 9.5vh 0 0;
+	padding-bottom: 3vh;
 	text-transform: uppercase;
 }
 
@@ -122,30 +124,31 @@ h5 {
 	justify-content: space-evenly;
 }
 .text-wrap {
-	width: 40.2%;
-	min-width: 250px;
+	display: inline-block;
 	padding-left: 10.2vw;
+	padding-right: 2rem;
+	margin-bottom: 2.5vw;
 	flex-grow: 1;
+	flex-basis: 30vw;
 }
-
 .image-wrap {
 	display: flex;
-	width: 48%;
-	flex-grow: 1;	
+	flex-basis: 50%;
+	flex-grow: 1;
 }
 .image-wrap img {
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
 	margin: 0;
-	
+	image-rendering: auto;
 }
 /* Skills Section */
 .grid-item.skills {
 	grid-row: span 2;
 	display: inline-flex;
 	flex-wrap: wrap;
-	margin: 1rem 10.2vw 20vh;
+	margin: 0 10.2vw 9.5vh;
 	justify-content: space-evenly;
 }
 .present-box {
@@ -154,7 +157,8 @@ h5 {
 	text-align: center;
 	justify-content: center;
 	min-width: 250px;
-	width:15%;
+	flex-basis:15%;
+	/* flex-shrink: 2; */
 	height: auto;
 	margin: 0.5rem 0.5rem;
 }
@@ -180,7 +184,8 @@ h5 {
 	background: #4e4e50;
 }
 #nav-portfolio {
-	padding: 1rem 10.2vw 2rem;
+	padding: 9.5vh 10.2vw 2rem;
+	margin: 0;
 	font-weight: 400;
 	color: #C3073F;
 }
@@ -189,7 +194,7 @@ h5 {
 	display:inline-flex;
 	flex-wrap: wrap;
 	grid-row: span 2;
-	padding: 0 10.2vw 10vh 10.2vw;
+	padding: 0 10.2vw 9.5vh;
 }
 
 .projects-thumbnail a {
@@ -334,10 +339,16 @@ form button {
 	#BL {
 		font-size: calc(9vh + 0.5vw);
 	}
+	h3 {
+		text-align: center;
+	}
 	.text-wrap {
 		padding-bottom:8vh;
 		padding-left: 10.2vw;
 		padding-right:10.2vw;
+	}
+	form input {
+		font-size: 2vh;
 	}
 	
 }
@@ -347,15 +358,21 @@ form button {
 		font-size: calc(2vh + 0.5vw);
 	}
 	#T {
-		font-size: calc(7vh + 0.5vw);
+		font-size: calc(8vh + 0.5vw);
 	}
 	#BL {
-		font-size: calc(7vh + 0.5vw);
+		font-size: calc(8vh + 0.5vw);
+	}
+	h3 {
+		text-align: center;
 	}
 	.slide-right.title {
 		transition-delay: 0.2s;
 		transform: translateX(0%) scale(0.85);
 		opacity: 0;	
+	}
+	form input {
+		font-size: 1.5vh;
 	}
 	
 }
