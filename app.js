@@ -4,7 +4,8 @@ var express = require("express"),
 	ejs		= require("ejs"),
 	app		= express();
 
-	require("dotenv").config();
+    require("dotenv").config();
+const key = require("./key.json");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -33,36 +34,44 @@ app.post("/", function(req, res, next){
     
     //Nodemailer route fror emails
     const transporter = nodemailer.createTransport({
-        service: "gmail",
-        secure: false,
+        host:"smtp.gmail.com",
+        port: 465,
+        secure: true,
         auth: {
-        user: process.env.AD_EMAIL, // generated ethereal user
-        pass: process.env.AD_PASSWORD // generated ethereal password
+            type: "OAuth2",
+            user: key.client_email,
+            serviceClient: key.client_key,
+            privatekey: key.private_key,
+
         },
-        tls:{
-            requireTLS: true,
-            rejectUnauthorized:false,
-        }
+        // tls:{
+        //     requireTLS: true,
+        //     rejectUnauthorized:false,
+        // }
     });
 
     // send mail with defined transport object
-    transporter.sendMail({
-        from: email, // sender address
-        to: process.env.AD_EMAIL, // list of receivers
-        subject: "Client Enquiry", // Subject line
-        text: message,
-        }, function(error, info){
-        if(error) {
-            console.log(error);
-        } else {
-            console.log("Message sent successfully: %s", info.messageId);
-            }
-
-        });
-    }
-    main().catch(console.error);
-    next(res.render("index"));  
+    try {
+        await transporter.verify();
+        await transporter.sendMail({
+            from: email, // sender address
+            to: process.env.AD_EMAIL, // list of receivers
+            subject: "Client Enquiry", // Subject line
+            text: message,
+            }, function(error, info){
+            if(error) {
+                console.log(error);
+            } else {
+                console.log("Message sent successfully: %s", info.messageId);
+                }
     
+            });
+        }
+        catch(err){
+            console.log(err);
+        }
+        next(res.render("index"));   
+    }    
 });
 
 // var port = process.env.PORT || 3000;
