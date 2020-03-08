@@ -34,44 +34,36 @@ app.post("/", function(req, res, next){
     
     //Nodemailer route fror emails
     const transporter = nodemailer.createTransport({
-        host:"smtp.gmail.com",
-        port: 465,
-        secure: true,
+        service: "gmail",
+        secure: false,
         auth: {
-            type: "OAuth2",
-            user: "admin@tombl.co.uk",
-            serviceClient: key.client_key,
-            privatekey: key.private_key,
-
+        user: process.env.AD_EMAIL, // generated ethereal user
+        pass: process.env.AD_PASSWORD // generated ethereal password
         },
-        // tls:{
-        //     requireTLS: true,
-        //     rejectUnauthorized:false,
-        // }
+        tls:{
+            requireTLS: true,
+            rejectUnauthorized:false,
+        }
     });
 
     // send mail with defined transport object
-    try {
-        await transporter.verify();
-        await transporter.sendMail({
-            from: email, // sender address
-            to: process.env.AD_EMAIL, // list of receivers
-            subject: "Client Enquiry", // Subject line
-            text: message,
-            }, function(error, info){
-            if(error) {
-                console.log(error);
-            } else {
-                console.log("Message sent successfully: %s", info.messageId);
-                }
+    transporter.sendMail({
+        from: email, // sender address
+        to: process.env.AD_EMAIL, // list of receivers
+        subject: "Client Enquiry", // Subject line
+        text: message,
+        }, function(error, info){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log("Message sent successfully: %s", info.messageId);
+            }
+
+        });
+    }
+    main().catch(console.error);
+    next(res.render("index"));  
     
-            });
-        }
-        catch(err){
-            console.log(err);
-        }
-        next(res.render("index"));   
-    }    
 });
 
 // var port = process.env.PORT || 3000;
