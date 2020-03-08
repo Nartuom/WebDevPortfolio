@@ -5,7 +5,6 @@ var express = require("express"),
 	app		= express();
 
     require("dotenv").config();
-const key = require("./key.json");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
