@@ -1,11 +1,11 @@
 var express = require("express"),
-	nodemailer  = require("nodemailer"),
+    nodemailer  = require("nodemailer"),
+    nodemailerSendgrid = require('nodemailer-sendgrid'),
 	bodyParser = require('body-parser'),
 	ejs		= require("ejs"),
 	app		= express();
 
     require("dotenv").config();
-const key = require("./key.json");
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -27,51 +27,36 @@ app.post("/", function(req, res, next){
     const email = `${req.body.user_email}`;
     const name  = `${req.body.user_name}`;
     const message = 
-        `New message from: ${email}
-        Name: ${name} 
-        Message: ${req.body.user_message}`      
+        `<div><h3>New message from:</h3>${email}</div> 
+        <div><h4>Name:</h4> ${name} </div>
+        <div><h5>Message:</h5> ${req.body.user_message}</div>`      
         ;
     
     //Nodemailer route fror emails
-    const transporter = nodemailer.createTransport({
-        host:"smtp.gmail.com",
-        port: 465,
-        secure: true,
-        auth: {
-            type: "OAuth2",
-            user: "admin@tombl.co.uk",
-            serviceClient: key.client_key,
-            privatekey: key.private_key,
-
-        },
-        // tls:{
-        //     requireTLS: true,
-        //     rejectUnauthorized:false,
-        // }
-    });
+    const transporter = nodemailer.createTransport(
+        nodemailerSendgrid({
+            apiKey: process.env.SENDGRID_API_KEY,
+        })
+    );
 
     // send mail with defined transport object
-    try {
-        await transporter.verify();
-        await transporter.sendMail({
-            from: email, // sender address
-            to: process.env.AD_EMAIL, // list of receivers
-            subject: "Client Enquiry", // Subject line
-            text: message,
-            }, function(error, info){
-            if(error) {
-                console.log(error);
-            } else {
-                console.log("Message sent successfully: %s", info.messageId);
-                }
+    transporter.sendMail({
+        from: email, // sender address
+        to: "thomas.burton.lawl@gmail.com", // list of receivers
+        subject: "Client Enquiry", // Subject line
+        html: message,
+        }, function(error, info){
+        if(error) {
+            console.log(error);
+        } else {
+            console.log("Message sent successfully:");
+            }
+
+        });
+    }
+    main().catch(console.error);
+    next(res.render("index"));  
     
-            });
-        }
-        catch(err){
-            console.log(err);
-        }
-        next(res.render("index"));   
-    }    
 });
 
 // var port = process.env.PORT || 3000;
