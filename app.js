@@ -3,10 +3,13 @@ var express = require("express"),
     nodemailerSendgrid = require('nodemailer-sendgrid'),
 	bodyParser = require('body-parser'),
 	ejs		= require("ejs"),
-	app		= express();
+    app		= express(),
+    http = require('http'),
+    enforce = require('express-sslify');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 
 app.get("/", function(req, res){
