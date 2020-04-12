@@ -20,7 +20,7 @@ nav{
 	left:0;
 	background: #1A1A1D;
 	z-index: 2;
-	padding: 0 10.2%;
+	padding: 0 10%;
 	margin-bottom: 10%;
 	border-bottom:1px solid #C3073F;
 }
@@ -50,8 +50,8 @@ nav a{
 }
 
 .margin {
-	margin-left: 10.2vw;
-	margin-right: 10.2vw;
+	margin-left: 10vw;
+	margin-right: 10vw;
 }
 
 .container {
@@ -79,23 +79,14 @@ h1 {
 	color: #FFFFFF;
 	text-transform: uppercase;
 }
-#T {
-	margin-top: 17.5vh;
-	margin-bottom: 0;
-}
-#BL {
-	margin-top: 0;
-}
-
 h2 {
-	font-size: calc(10vh + 0.5vw);
+	font-size: calc(9vh + 0.5vw);
 	font-weight: 400;
 	color: #c83f77;
-	margin: 8.5vh 0 0;
+	margin: 6vh 0 1rem;
 	padding-right: 2rem;
 	text-transform: uppercase;
 }
-
 h3 {
 	font-size: calc(8vh + 0.5vw);
 	font-weight: 400;
@@ -104,16 +95,35 @@ h3 {
 	padding-bottom: 3vh;
 	text-transform: uppercase;
 }
-
 h4 {
-	font-size: calc(4vh + 0.5vw);
-	color: #c83f77;
+	font-size: calc(2vh + 0.5vw);
+	color: black;
+	text-decoration: underline;
 }
 h5 {
 	font-size: calc(1.5vh + 0.5vw);
 	font-weight: 600;
 	margin: 0;
-	padding: 0.75rem 0.75vw;
+	text-decoration: none;
+}
+#T {
+	margin-top: 17.5vh;
+	margin-bottom: 0;
+}
+#BL {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+#jobRole {
+	font-size: calc(6vh + 0.5vw);
+	font-weight: 400;
+	color: #c83f77;
+	margin: 4vh 0 1rem;
+	padding-right: 2rem;
+	text-transform: uppercase;
+}
+a {
+	text-decoration: none;
 }
 /* About section */
 .grid-item.about {
@@ -125,11 +135,22 @@ h5 {
 }
 .text-wrap {
 	display: inline-block;
-	padding-left: 10.2vw;
-	padding-right: 2rem;
-	margin-bottom: 2.5vw;
+	padding-left: 10vw;
+	padding-right: 5rem;
+	margin-bottom: 2vh;
 	flex-grow: 1;
 	flex-basis: 30vw;
+}
+#mediaIcons {
+	margin:0 ;
+}
+.mIcon {
+	width: 70px;
+	height: auto;
+	margin-top: 3vh;
+	margin-right: 2vw;
+	margin-bottom: 3vh;
+	object-fit: cover;
 }
 .image-wrap {
 	display: flex;
@@ -146,34 +167,45 @@ h5 {
 /* Skills Section */
 .grid-item.skills {
 	grid-row: span 2;
-	display: inline-flex;
-	flex-wrap: wrap;
-	margin: 0 10.2vw 9.5vh;
-	justify-content: space-evenly;
+	display: flex;
+	margin: 0 10vw 9.5vh;
+	justify-content: flex-start;
 }
-.present-box {
+.skill-container {
+	
+	padding: 1rem 1rem;
+}
+.skill-box {
 	display:flex;
-	flex-grow: 1;
-	text-align: center;
-	justify-content: center;
-	min-width: 250px;
-	flex-basis:15%;
-	/* flex-shrink: 2; */
+	grid-row: span 2;
+	grid-column: span 2;
+	flex: 1;
+	text-align: left;
+	justify-content: flex-start;
+	align-self: flex-start;
+	margin-right: 5vw;
 	height: auto;
-	margin: 0.5rem 0.5rem;
+}
+.skill-box ul {
+	display: flex;
+	flex-wrap: wrap;
+	list-style: none;
+	padding-left: 0;
+	justify-content: flex-start;
+	align-items: flex-end;
+}
+.skill-box li {
+	text-align: center;
+	align-items: center;
+	margin: 2rem 4rem 2rem 0;
 }
 
-.present-box div{
-	text-align: center;
-	min-width: 250px;
-	width:14%;
-	padding: 0.5rem 0.5rem;
-}
 .s-img {
-	object-fit:contain;
-	height:150px;
-	width:150px;
+	object-fit: contain;
+	height: 120px;
+	width: 140px;
 }
+
 .p-img {
 	object-fit: cover;
 	height: auto;
@@ -184,7 +216,7 @@ h5 {
 	background: #4e4e50;
 }
 #nav-portfolio {
-	padding: 9.5vh 10.2vw 2rem;
+	padding: 6vh 10vw 2rem;
 	margin: 0;
 	font-weight: 400;
 	color: #C3073F;
@@ -194,7 +226,14 @@ h5 {
 	display:inline-flex;
 	flex-wrap: wrap;
 	grid-row: span 2;
-	padding: 0 10.2vw 9.5vh;
+	padding: 0 10vw 9.5vh;
+	justify-content: space-evenly;
+}
+.projects-box {
+	height: 350px;
+	width: 450px;
+	margin: 1rem 2rem 2rem 0;
+	text-align: center;
 }
 
 .projects-thumbnail a {
@@ -324,8 +363,11 @@ form button {
 		font-size: calc(2vh + 0.5vw);
 	}
 	.text-wrap {
-		padding-left:10.2vw;
-		padding-right:10.2vw;
+		padding-left:10vw;
+		padding-right:10vw;
+	}
+	.grid-item.skills {
+		flex-wrap: wrap;
 	}
 }
 
@@ -342,10 +384,13 @@ form button {
 	h3 {
 		text-align: center;
 	}
+	.present-box {
+		grid-column: span 4;
+	}
 	.text-wrap {
-		padding-bottom:8vh;
-		padding-left: 10.2vw;
-		padding-right:10.2vw;
+		padding-bottom:3vh;
+		padding-left: 10vw;
+		padding-right:10vw;
 	}
 	form input {
 		font-size: 2vh;
@@ -365,6 +410,16 @@ form button {
 	}
 	h3 {
 		text-align: center;
+	}
+	.grid-item.skills {
+		justify-items: center;
+	}
+	.present-box {
+		text-align: center;
+	}
+	.s-img {
+		height: 60px;
+		width: 70px;
 	}
 	.slide-right.title {
 		transition-delay: 0.2s;
