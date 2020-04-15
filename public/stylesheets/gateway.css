@@ -24,38 +24,34 @@ body {
 .big-rectangles {
 	position: inherit;
 	display: block;
-	width: 600px;
-	height: 600px;
 	top: 0%;
-	left: -10;
+	left: -10%;
+	height: 38vw;
+	width: 38vw;
 	background: #2127B3;
 	transform: rotate(21deg);
-	animation: linear fade-in 5s, scale-in-big 12s, infinite-rotation 180s infinite;
+	animation: linear fade-in 5s;
 }
-.big-rectangles:nth-last-of-type(1){
-	top: 75%;
-	left: -20;
+.big-rectangles:nth-of-type(1){
+	top: -15%;
+	left: -10%;
 	transform: rotate(-69deg);
+
 }
-.big-rectangles:nth-last-of-type(2){
-	top: 55%;
-	left: 40%;
-	transform: rotate(-173deg);
+.big-rectangles:nth-of-type(2){
+	top: -10%;
+	left: 65%;
+	transform: rotate(-45deg);
 }
 .big-rectangles:nth-of-type(3){
-	top: -20;
-	left: 75%;
-	transform: rotate(34deg);
+	top: 55%;
+	left: -6%;
+	transform: rotate(45deg);
 }
 .big-rectangles:nth-of-type(4){
-	top: -30;
-	left: 35%;
-	transform: rotate(54deg);
-}
-.big-rectangles:nth-of-type(5){
 	top: 70%;
-	left: 55%;
-	transform: rotate(54deg);
+	left: 65%;
+	transform: rotate(34deg);
 }
 
 .drop-wrapper {
@@ -118,26 +114,34 @@ body {
 	display: block;
 	margin: 0;
 	top: 0;
-	height: 350px;
-	width: 350px;
+	left: -50;
+	height: 20vw;
+	width: 20vw;
 	background-color: #2127B3;
 	z-index: -1;
 	transform: rotate(12deg);
 	animation: ease-in-out fade-in 1.5s, infinite-rotation 180s infinite;
 }
+.small-rectangles:nth-of-type(0){
+	transform: rotate(57deg);
+	height:20vw;
+	width:20vw;
+	top: -30;
+	left: -20%;
+}
 .small-rectangles:nth-of-type(1){
 	transform: rotate(57deg);
-	height:380px;
-	width:380px;
-	top: 55%;
-	left: 30%;
+	height:20vw;
+	width:20vw;
+	top: 68%;
+	left: 20%;
 }
 .small-rectangles:nth-of-type(2){
 	transform: rotate(-33deg);
-	top: 0;
-	left: 60%;
-	height:300px;
-	width: 300px;
+	top: -60%;
+	left: 38%;
+	height:20vw;
+	width: 20vw;
 	animation: ease-in-out fade-in 3s, infinite-rotation 180s infinite;
 
 }
@@ -149,18 +153,18 @@ body {
 }
 .small-rectangles:nth-of-type(4){
 	transform: rotate(120deg);
-	height: 250px;
-	width: 250px;
-	top: -30%;
-	left: 30%;
+	height: 25vw;
+	width: 25vw;
+	top: -40%;
+	left: 85%;
 	animation: ease-in-out fade-in 3s, infinite-rotation 130s infinite;
 }
 .small-rectangles:nth-of-type(5){
 	transform: rotate(120deg);
-	height: 250px;
-	width: 250px;
-	top: -50%;
-	left: 65%;
+	height: 25vw;
+	width: 25vw;
+	top: -80%;
+	left: -8%;
 	animation: ease-in-out fade-in 3s, infinite-rotation 160s infinite;
 }
 
@@ -178,20 +182,14 @@ body {
   }
 
 @keyframes infinite-falling {
-	0%{top: 0}
-	50%{top: 100%}
-	100%{top:0}
-}
-
-@keyframes scale-in-big {
-	from {
-		height: 100px;
-		width: 100px;
-	}
-	to {
-		height:600px;
-		width: 600px;
-	}
+	0% {opacity: 0;
+		top: 0}
+	2% {opacity: 1}
+	75% {opacity: 0.5;}	
+	85% {top: 180%;
+		opacity: 0;}
+	100%{ opacity: 0;
+		top:-180%}
 }
 @keyframes fade-in {
 	from {
@@ -206,6 +204,7 @@ body {
 
 nav{
 	position:fixed;
+	display: none;
 	width:100%;
 	height:80px;
 	top:0;
@@ -339,11 +338,16 @@ a {
 	image-rendering: auto;
 }
 /* Skills Section */
+#nav-skills {
+	margin: 0;
+	padding: 2rem 10vw;
+	background-color: white;
+}
 .grid-item.skills {
 	grid-row: span 2;
 	display: flex;
 	background-color:  #ffffff;
-	margin: 0 10vw 9.5vh;
+	padding: 0 10vw 9.5vh;
 	justify-content: flex-start;
 }
 .skill-container {
@@ -401,12 +405,12 @@ a {
 	display:inline-flex;
 	flex-wrap: wrap;
 	grid-row: span 2;
-	padding: 0 10vw 9.5vh;
+	padding: 0 2rem 9.5vh;
 	justify-content: space-evenly;
 }
 .projects-box {
-	height: 350px;
-	width: 450px;
+	height: 300px;
+	width: 350px;
 	margin: 1rem 2rem 2rem 0;
 	text-align: center;
 }
