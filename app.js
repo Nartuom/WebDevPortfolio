@@ -1,13 +1,15 @@
 var express = require("express"),
-	nodemailer  = require("nodemailer"),
+    nodemailer  = require("nodemailer"),
+    nodemailerSendgrid = require('nodemailer-sendgrid'),
 	bodyParser = require('body-parser'),
 	ejs		= require("ejs"),
-	app		= express();
-
-	require("dotenv").config();
+    app		= express(),
+    http = require('http'),
+    enforce = require('express-sslify');
 
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
+app.use(enforce.HTTPS({ trustProtoHeader: true }));
 
 
 app.get("/", function(req, res){
@@ -26,36 +28,29 @@ app.post("/", function(req, res, next){
     const email = `${req.body.user_email}`;
     const name  = `${req.body.user_name}`;
     const message = 
-        `New message from: ${email}
-        Name: ${name} 
-        Message: ${req.body.user_message}`      
+        `<div><h3>New message from:</h3>${email}</div> 
+        <div><h4>Name:</h4> ${name} </div>
+        <div><h5>Message:</h5> ${req.body.user_message}</div>`      
         ;
     
     //Nodemailer route fror emails
-    const transporter = nodemailer.createTransport({
-        service: "gmail",
-        secure: false,
-        auth: {
-        user: process.env.AD_EMAIL, // generated ethereal user
-        pass: process.env.AD_PASSWORD // generated ethereal password
-        },
-        tls:{
-            requireTLS: true,
-            rejectUnauthorized:false,
-        }
-    });
+    const transporter = nodemailer.createTransport(
+        nodemailerSendgrid({
+            apiKey: process.env.SENDGRID_API_KEY,
+        })
+    );
 
     // send mail with defined transport object
     transporter.sendMail({
         from: email, // sender address
-        to: process.env.AD_EMAIL, // list of receivers
+        to: "thomas.burton.lawl@gmail.com", // list of receivers
         subject: "Client Enquiry", // Subject line
-        text: message,
+        html: message,
         }, function(error, info){
         if(error) {
             console.log(error);
         } else {
-            console.log("Message sent successfully: %s", info.messageId);
+            console.log("Message sent successfully:");
             }
 
         });

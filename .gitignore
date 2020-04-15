@@ -1,3 +1,4 @@
+app.js
 # Logs
 logs
 *.log
@@ -108,3 +109,5 @@ dist
 
 #env 
 .env
+
+key.json
