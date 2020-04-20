@@ -4,7 +4,8 @@ var express = require("express"),
 	bodyParser = require('body-parser'),
 	ejs		= require("ejs"),
     app		= express(),
-    http = require('http'),
+    https = require('https'),
+    fs = require("fs"),
     enforce = require('express-sslify');
 
 app.set('view engine', 'ejs');
@@ -60,8 +61,15 @@ app.post("/", function(req, res, next){
     
 });
 
-// var port = process.env.PORT || 3000;
-var url = process.env.DATABASEURL;
-app.listen(process.env.PORT||3000, process.env.IP, function(){
-	console.log("Server Live at " + url);
-});
+// var url = process.env;
+// app.listen(process.env.PORT||3000, process.env.IP, function(){
+// 	console.log("Server Live at " + url);
+// });
+
+https.createServer({
+    key: fs.readFileSync('../private-key.key'),
+    cert: fs.readFileSync('../rootSSL.pem')
+  }, app)
+  .listen(3000, function () {
+    console.log('Example app listening on port 3000! Go to https://localhost:3000/')
+  })

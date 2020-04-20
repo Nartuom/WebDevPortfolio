@@ -79,7 +79,15 @@ window.onload = function(){
     myName();
 }
 
-
 window.addEventListener("scroll", function(){
     debounce(checkSlide(), 300, true);
 });
+
+//button click
+const readMore = document.getElementsByClassName("expandButton");
+const myStory = document.getElementsByClassName("expandableDiv");
+const expandImg = document.getElementsByClassName("koreaTom");
+readMore[0].addEventListener("click", function(){
+    myStory[0].classList.toggle("active");
+    expandImg[0].classList.toggle("expandedImg");
+})
