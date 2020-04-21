@@ -87,7 +87,9 @@ window.addEventListener("scroll", function(){
 const readMore = document.getElementsByClassName("expandButton");
 const myStory = document.getElementsByClassName("expandableDiv");
 const expandImg = document.getElementsByClassName("koreaTom");
+const aboutSec = document.getElementsByClassName("grid-item about");
 readMore[0].addEventListener("click", function(){
     myStory[0].classList.toggle("active");
     expandImg[0].classList.toggle("expandedImg");
+    aboutSec[0].classList.toggle("expanded");
 })
