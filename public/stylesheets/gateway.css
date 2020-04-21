@@ -344,39 +344,41 @@ a {
 	text-decoration: none;
 }
 /* About section */
-.grid-item.about {
+.grid-item.content-box {
 	display: inline-flex;
 	background-color: #ffffff;
 	flex-wrap: wrap;
-	grid-row:  span 1;
+	grid-row:  span 2;
 	height: 60vh;
 	width: 100vw;
 	justify-content: space-evenly;
 	z-index: 1;
-	transition: height 2s ease-in-out;
 }
-.grid-item.about.expanded {
-	height: 100vh;
+.content-box.expanded {
+	height: 100%;
 }
 .about-wrap {
 	display:inline-flex;
 	flex-wrap: wrap;
 	width: 100vw;
-	height: 100%;
+	height: inherit;
+	background-color: #ffffff;
 }
 .expandableDiv {
-	display: block;
-	height: 0px;
+	display: flex;
+	max-height: 0px;
 	opacity: 0;
 	overflow: hidden;
-	transition: height 2s ease-in-out;
 }
 .expandableDiv.active {
-	display: block;
+	display: flex;
+	flex: 1;
 	opacity: 1;
-	height: 25em;
+	height: auto;
+	max-height: 900px;
+	transition: max-height 1s ease;
 }
-.grid-item.about button {
+.grid-item.content-box button {
 	height: 45px;
 	width: 140px;
 	background-color: white;
@@ -391,13 +393,14 @@ a {
 	display: inline-flex;
 	flex-basis: 30%;
 	flex-grow: 1;
+	height: fit-content;
 	padding-left: 10vw;
 	padding-right: 5rem;
 	margin-bottom: 2vh;
 
 }
 #mediaIcons {
-	margin:0 ;
+	margin:4rem 0 0 ;
 }
 .mIcon {
 	width: 70px;
@@ -409,35 +412,33 @@ a {
 }
 .image-wrap {
 	display: flex;
-	flex-basis: 50vw;
-	height: 100%;
+	flex-basis: 50%;
+	flex-grow: 1;
 	overflow: hidden;
+	height: inherit;
+	transition: height 1s ease 0s;
 }
 .koreaTom {
 	object-fit: cover;
-	display: flex;
-	flex-basis: 50vw;
-	flex-grow: 1;	
+	display: flex;		
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	image-rendering: auto;
 	transform: translateY(0);
-	transition: 2s ease-in-out;
 }
 .koreaTom.expandedImg {
 	transform: translateY(0);
-	height: 100%;
 }
 /* Skills Section */
 .grid-item.margin {
 	margin: 0;
 	padding: 2rem 10vw;
-	grid-row: 5, span 1;
+	grid-row: span 1;
 	background-color: #F5F5F5;
 }
 .grid-item.skills {
-	grid-row: 6, span 1;
+	grid-row: span 1;
 	display: flex;
 	background-color:  #F5F5F5;
 	padding: 0 10vw 9.5vh;
@@ -544,23 +545,39 @@ form textarea{
 	width: 100%;
 	height:150px;
 	padding:10px;
+	max-width: 850px;
+	max-height: 1000px;
 }
 
 form button {
 	grid-column: 1;
 	padding: 10px;
 }
+#nav-contact {
+	height: 100%;
+}
 #nav-contact .image-wrap {
 	display: flex;
 	flex-basis: 50%;
 	height: 100%;
+	max-height: 800px;
 }
 
 #nav-contact img {
 	object-fit: cover;
 	width: 100%;
 	height: 100%;
+	max-height: 800px;
 
+}
+.grid-item-footer {
+	grid-column: span 4;
+	grid-row: span 1;
+	background: #4e4e50;
+	color: #ffffff;
+	text-align:center;
+	font-weight: 400;
+	padding: 1.5em;
 }
 
 
@@ -604,11 +621,12 @@ form button {
 	
 }
 @media(max-width:1400px){
-	body {
-		font-size: calc(2vh + 0.5vw);
-	}
 	nav {
 		height: 80px;
+	}
+	.grid-item.content-box {
+		height: 100%;
+		transition: none;
 	}
 	.text-wrap {
 		padding-left:10vw;
@@ -617,12 +635,12 @@ form button {
 	.grid-item.skills {
 		flex-wrap: wrap;
 	}
+	.image-wrap {
+		height: auto;
+	}
 }
 
 @media(max-width:800px){
-	body {
-		font-size: calc(2vh + 0.5vw);
-	}
 	nav {
 		height: 60px;
 	}
@@ -635,10 +653,12 @@ form button {
 	h3 {
 		text-align: center;
 	}
+	
 	.present-box {
 		grid-column: span 4;
 	}
 	.text-wrap {
+		height: fit-content;
 		padding-bottom:3vh;
 		padding-left: 10vw;
 		padding-right:10vw;
@@ -650,9 +670,6 @@ form button {
 }
 
 @media(max-width:400px){
-	body {
-		font-size: calc(2vh + 0.5vw);
-	}
 	nav {
 		height: 50px;
 	}

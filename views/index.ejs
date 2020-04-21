@@ -38,17 +38,20 @@
 			</div>			
 		</div>
 <!--About-->			
-	<div id="nav-about" class="grid-item about">
+	<div id="nav-about" class="grid-item content-box">
 		<div class="about-wrap">
 			<div class="text-wrap">
 				<div>
 					<h2>ABOUT</h2>
 				<p>Hi there! My name is Tom and I am an aspiring full stack web developer from the south west of the Uk. I love coding, space documantaries, Dungeons and Dragons, and climbing. If you'd like to know more about my story you can read it below, or skip straight to my portfolio and get in touch if you'd like to work with me!</p> 
 				<div id="myStory" class="expandableDiv">
-					<p><strong>My story</strong></p>
-					<p>After studying Music at University I returned home to the west country to work in health and social care as a senior support worker, and specifically I worked with adults with Autism. I loved this job! It meant I could help others to pursue their interests and work alongside them to problem solve on a daily basis with the aim to support great people to live their best lives. Many of my clients loved video games and computing, and one day I stumbled upon a treasure trove of online computing courses that I had great fun introducing to my clients. What I didnt expect was that when I sat down to support my clients complete these courses, I would discover a passion for coding that I never knew was in me!</p>
-					<p>After challenging myself to complete an online bootcamp during my spare time, I quickly became hooked and found a new outlet of creativity that feeds my natural curiosity and my inclination for problem solving. <br>I am currently honing my foundational skills with freelance work, and am also taking exciting steps to expand my learning in additional front and back-end frameworks. Take at look at the projects I have worked on in my portfolio section, and please feel free to get in touch if you like what you see!</p>
-				<p><strong>Tom :)</strong></p>
+					<div>
+						<p><strong>My story</strong></p>
+						<p>After studying Music at University I returned home to the west country to work in health and social care as a senior support worker, and specifically I worked with adults with Autism. I loved this job! It meant I could help others to pursue their interests and work alongside them to problem solve on a daily basis with the aim to support great people to live their best lives. Many of my clients loved video games and computing, and one day I stumbled upon a treasure trove of online computing courses that I had great fun introducing to my clients. What I didnt expect was that when I sat down to support my clients complete these courses, I would discover a passion for coding that I never knew was in me!</p>
+						<p>After challenging myself to complete an online bootcamp during my spare time, I quickly became hooked and found a new outlet of creativity that feeds my natural curiosity and my inclination for problem solving. <br>I am currently honing my foundational skills with freelance work, and am also taking exciting steps to expand my learning in additional front and back-end frameworks. Take at look at the projects I have worked on in my portfolio section, and please feel free to get in touch if you like what you see!</p>
+						<p><strong>Tom :)</strong></p>
+					</div>
+					
 				</div>
 				<button class="expandButton">Read More</button>
 				
@@ -155,18 +158,18 @@
 	
 	<!--Contact information-->
 	
-	<div id="nav-contact"class="grid-item about">
+	<div id="nav-contact"class="grid-item content-box">
 		<div class="text-wrap">
 			<div>
 				<h2>CONTACT</h2>
 				<p>If you like what you see, would like to talk about working with me, or just fancy a chat! Then please don't hesitate to get in touch using the form below, or if you prefer you can reach me at: <strong>thomas.burton.lawl@gmail.com</strong></p>
 				<form method="POST" action="/">
 					<label for="name" >Your Name*</label> <label>Your Email*</label> 
-					<input type="text" name="user_name" id="name" placeholder= "...Your name">
-					<input type="text" name="user_email" id="email" placeholder= "...Your email address">
+					<input type="text" name="user_name" id="name" placeholder= "...Your name" required>
+					<input type="text" name="user_email" id="email" placeholder= "...Your email address" required>
 					<label>Your Message</label>
 					<br>
-					<textarea name="user_message" id="message" type="textarea" placeholder="Write your message here"></textarea>
+					<textarea name="user_message" id="message" type="textarea" placeholder="Write your message here" required></textarea>
 					<br>
 					<button>Submit</button>
 				</form>	
@@ -179,6 +182,8 @@
 		</div>
 		
 	</div>
+
+	<footer class="grid-item-footer">Copyright © 2020 Thomas Burton-Lawl</footer>
 
 </div>
 	
