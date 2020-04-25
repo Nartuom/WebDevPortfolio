@@ -356,7 +356,7 @@ a {
 	width: 100vw;
 	justify-content: space-evenly;
 	z-index: 1;
-	transition: height 1.5s ease-in-out;
+	transition: height 1.4s ease-in-out;
 }
 .content-box.expanded {
 	height: 60em;
@@ -374,7 +374,7 @@ a {
 	max-height: 0px;
 	opacity: 0;
 	overflow: hidden;
-	transition: max-height 1s ease-in-out;
+	transition: max-height 0.9s ease-in-out;
 }
 .expandableDiv.active {
 	display: flex;
@@ -407,7 +407,7 @@ a {
 
 }
 #mediaIcons {
-	margin:3rem 0;
+	margin:1.5rem 0;
 }
 .mIcon {
 	width: 7.5vh;
