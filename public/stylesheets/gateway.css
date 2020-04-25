@@ -97,7 +97,7 @@ p {
 	z-index: 4;
 }
 #jobRole {
-	font-size: calc(6vh + 0.5vw);
+	font-size: calc(3vh + 0.5vw);
 	font-weight: 400;
 	color: #F64C71;
 	text-transform: uppercase;
@@ -322,7 +322,6 @@ h2 {
 	font-weight: 400;
 	color: #2127B3;
 	margin: 6vh 0 1rem;
-	padding-right: 2rem;
 	text-transform: uppercase;
 }
 h3 {
@@ -330,12 +329,12 @@ h3 {
 	font-weight: 400;
 	color: #274D5A;
 	margin: 9.5vh 0 0;
-	padding-bottom: 3vh;
+	padding-bottom: 2.5rem;
 	text-transform: uppercase;
 }
 h4 {
 	font-size: calc(2vh + 0.5vw);
-	color: black;
+	color: #F64C71;
 	text-decoration: underline;
 }
 h5 {
@@ -382,12 +381,14 @@ a {
 	flex: 1;
 	opacity: 1;
 	height: auto;
-	max-height: 900px;
+	max-height: 950px;
 	transition: max-height 2s ease-in-out;
+
 }
 .grid-item.content-box button {
 	height: 45px;
 	width: 140px;
+	margin-top: 1.5rem;
 	background-color: white;
 	font-family: "dosis", sans serif;
 	font-size: 18px;
@@ -401,9 +402,8 @@ a {
 	flex-basis: 30%;
 	flex-grow: 1;
 	height: fit-content;
-	padding-left: 10vw;
-	padding-right: 5rem;
-	margin-bottom: 2vh;
+	padding: 0 1em 0 0;
+	margin: 0 2em 0 10vw;
 
 }
 #mediaIcons {
@@ -441,6 +441,7 @@ a {
 	margin: 0;
 	padding: 2rem 10vw;
 	grid-row: span 1;
+	color: #F64C71;
 	background-color: #F5F5F5;
 }
 .grid-item.skills {
@@ -448,22 +449,19 @@ a {
 	display: flex;
 	background-color:  #F5F5F5;
 	padding: 0 10vw 9.5vh;
-	justify-content: flex-start;
+	justify-content: space-between;
 }
 .skill-container {
-	
+	display: flex;
+	flex-basis: 20%;
 	padding: 1rem 1rem;
 }
 .skill-box {
-	display:flex;
-	grid-row: span 2;
-	grid-column: span 2;
-	flex: 1;
+	height: 100%;
+	width: 100%;
 	text-align: left;
 	justify-content: flex-start;
 	align-self: flex-start;
-	margin-right: 5vw;
-	height: auto;
 }
 .skill-box ul {
 	display: flex;
@@ -474,9 +472,16 @@ a {
 	align-items: flex-end;
 }
 .skill-box li {
-	text-align: center;
+	display: flex;
+	text-align: left;
 	align-items: center;
-	margin: 2rem 4rem 2rem 0;
+	padding: 0.5em 0.5em 0.5em 0;
+	margin: 0.5em 0.5em 0.5em;
+}
+.tick {
+	width: 20px;
+	height: auto;
+	margin-right: 1em;
 }
 
 .s-img {
@@ -491,19 +496,11 @@ a {
 	width: 100%;
 }
 /* portfolio Section */
-.background-blue {
-	background: #242582;
-}
-#nav-portfolio {
-	padding: 1rem 10vw;
-	margin: 0;
-	font-size: 75px;
-	font-weight: 400;
-	color: #C3073F;
-}
 .content-box.portfolio {
 	height: 100vh;
 	width: 100vw;
+	background-color: #ffffff;
+	padding: 0;
 }
 .portfolio-wrap  {
 	background-color: #242582;
@@ -513,6 +510,7 @@ a {
 	width: 100vw;
 	height: 100%;
 	z-index: 5;
+	padding-top: 2rem;
 	clip-path: polygon(0 0, 100% 0, 100% 96%, 0 75%);
 
 }
@@ -655,6 +653,7 @@ form button {
 	text-align:center;
 	font-weight: 600;
 	padding: 1.5em;
+	z-index: 5;
 }
 
 
@@ -709,10 +708,6 @@ form button {
 		height: 100%;
 		transition: none;
 	}
-	.text-wrap {
-		padding-left:10vw;
-		padding-right:10vw;
-	}
 	.grid-item.skills {
 		flex-wrap: wrap;
 	}
@@ -725,6 +720,13 @@ form button {
 	}
 	.showcase-container a {
 		margin: 0 10vw;
+	}
+	.portfolio-wrap {
+		clip-path: polygon(0 0, 100% 0, 100% 96%, 0 85%);
+	}
+	.content-box.portfolio {
+		height: 165vh;
+		width: 100vw;
 	}
 }
 
@@ -741,6 +743,9 @@ form button {
 	#jobRole {
 		font-size: 26px;
 	}
+	h2 {
+		font-size: 60px;
+	}
 	h3 {
 		text-align: center;
 	}
@@ -750,9 +755,6 @@ form button {
 	}
 	.text-wrap {
 		height: fit-content;
-		padding-bottom:3vh;
-		padding-left: 10vw;
-		padding-right:10vw;
 	}
 	form input {
 		font-size: 2vh;
@@ -768,7 +770,9 @@ form button {
 		text-align: center;
 	}
 	.showcase-container h3 {
-		margin-top: 1rem;
+		margin-top: 0.5rem;
+		padding-bottom: 0.5rem;
+		text-align: center;
 	}
 	.showcase-container .image-wrap {
 		margin: 0;
@@ -790,7 +794,7 @@ form button {
 	
 }
 
-@media(max-width:400px){
+@media(max-width:500px){
 	nav {
 		height: 50px;
 	}
@@ -821,7 +825,13 @@ form button {
 	form input {
 		font-size: 1.5vh;
 	}
-	
+	.portfolio-wrap {
+		clip-path: polygon(0 0, 100% 0, 100% 96%, 0 90%);
+	}
+	.content-box.portfolio {
+		height: 155vh;
+		width: 100vw;
+	}	
 }
 
 
