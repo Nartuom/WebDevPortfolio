@@ -634,7 +634,6 @@ form button {
 #nav-contact .image-wrap {
 	display: flex;
 	flex-basis: 50%;
-	height: 100%;
 	max-height: 800px;
 }
 
