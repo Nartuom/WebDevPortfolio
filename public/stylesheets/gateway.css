@@ -1,6 +1,5 @@
 body {
 	margin:0;
-	padding-top:20px;
 	height: 100%;
 	width:100%;
 	position: relative;
@@ -39,23 +38,25 @@ p {
 	top: -10%;
 	left: 5%;
 	transform: rotate(-49deg);
-	box-shadow: 10px 10px 10px #494554;
+	box-shadow: 0px 10px 10px #181950;
 }
 .big-rectangles:nth-of-type(2){
 	top: -10%;
 	left: 65%;
 	transform: rotate(-45deg);
+	box-shadow: 0px 3px 5px #181950;
 }
 .big-rectangles:nth-of-type(3){
 	top: 45%;
 	left: 6%;
 	transform: rotate(45deg);
-	box-shadow: 10px 10px 10px #494554;
+	box-shadow: 0px 2px 5px #181950;
 }
 .big-rectangles:nth-of-type(4){
 	top: 55%;
-	left: 65%;
+	left: 60%;
 	transform: rotate(-40deg);
+	box-shadow: 3px 5px 5px #181950;
 }
 .drop-wrapper {
 	position: relative;
@@ -734,6 +735,18 @@ form button {
 }
 
 @media(max-width:800px){
+	.big-rectangles {
+		height: 45vh;
+		width: 45vh;
+	}
+	.big-rectangles:nth-of-type(1) {
+		top: -10%;
+		left: -15%;
+	}
+	.big-rectangles:nth-of-type(3) {
+		top: 52%;
+		left: -10%;
+	}
 	nav {
 		height: 60px;
 	}
