@@ -1,23 +1,3 @@
-//Nasa api setup
-// var req = new XMLHttpRequest();
-// var url = "https://api.nasa.gov/planetary/apod?api_key="
-// var api_key= "b0wawz6eOUSBRMbmmYbeNkLp2GZC5HnIoQ5dBfe1"
-
-// req.open("GET", url + api_key, true);
-// req.send();
-
-// req.addEventListener("load", function(){
-//     if(req.status == 200 && req.readyState == 4){
-//         var response = JSON.parse(req.responseText);
-//         if(response.media_type == "video"){
-//             document.getElementById("space").src = "https://apod.nasa.gov/apod/image/2002/ZetaOph_spitzer_960.jpg";
-//         } else {
-//             document.getElementById("space").src = response.url;
-//         } 
-//     }
-// });
-
-
 function debounce(func, wait, immediate){
 	let timeout;
 	return function() {
@@ -39,9 +19,6 @@ function debounce(func, wait, immediate){
 };
 //select Sliding elements on left
 const sliders = document.querySelectorAll(".slide-in");
-//select h1 to slidedown
-
-
 
 // Check if sliding elements are halfway on screen then add/ remove slide class.
 function checkSlide(){
