@@ -39,7 +39,7 @@ p {
 	top: -10%;
 	left: 5%;
 	transform: rotate(-49deg);
-
+	box-shadow: 10px 10px 10px #494554;
 }
 .big-rectangles:nth-of-type(2){
 	top: -10%;
@@ -50,6 +50,7 @@ p {
 	top: 45%;
 	left: 6%;
 	transform: rotate(45deg);
+	box-shadow: 10px 10px 10px #494554;
 }
 .big-rectangles:nth-of-type(4){
 	top: 55%;
@@ -85,23 +86,20 @@ p {
 }
 .title-inner {
 	align-items: center;
+	height: 100%;
+	width: 100%;
 }
 #T {
 	align-self: center;
 	margin:0;
 	z-index: 4;
 }
-#BL {
-	margin-top: 0;
-	margin-bottom: 0;
-	z-index: 4;
-}
 #jobRole {
-	font-size: calc(3vh + 0.5vw);
+	font-size: calc(5vh + 0.5vw);
 	font-weight: 400;
 	color: #F64C71;
 	text-transform: uppercase;
-	margin:0;
+	margin: 0.5em 0;
 }
 .droptangle {
 	position: absolute;
@@ -110,7 +108,7 @@ p {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	animation: infinite-falling 50s infinite linear;
+	animation: infinite-falling 60s infinite linear;
 	z-index: -1;
 }
 .droptangle-repeat {
@@ -120,7 +118,7 @@ p {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	animation: infinite-repeat 50s infinite linear;
+	animation: infinite-repeat 60s infinite linear;
 	z-index: -1;
 }
 .small-rectangles {
@@ -138,7 +136,7 @@ p {
 	width:20vw;
 	top: 0;
 	left: 80%;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .droptangle-repeat.small-rectangles:nth-of-type(1){
 	transform: rotate(57deg);
@@ -146,7 +144,7 @@ p {
 	width:20vw;
 	top: -100%;
 	left: 80%;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .small-rectangles:nth-of-type(2){
 	transform: rotate(-33deg);
@@ -154,7 +152,7 @@ p {
 	left: 8%;
 	height:16vw;
 	width: 16vw;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .droptangle-repeat.small-rectangles:nth-of-type(2){
 	transform: rotate(-33deg);
@@ -162,19 +160,19 @@ p {
 	left: 8%;
 	height:16vw;
 	width: 16vw;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .small-rectangles:nth-of-type(3){
 	transform: rotate(97deg);
 	top: 60%;
 	left: 70%;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .droptangle-repeat.small-rectangles:nth-of-type(3){
 	transform: rotate(97deg);
 	top: -40%;
 	left: 70%;
-	animation: infinite-rotation 50s infinite linear;
+	animation: infinite-rotation 60s infinite linear;
 }
 .small-rectangles:nth-of-type(4){
 	transform: rotate(120deg);
@@ -192,9 +190,9 @@ p {
 }
 @keyframes infinite-rotation {
 	from {
-	  -webkit-transform: rotate();
-	  -moz-transform: rotate();
-	  transform: rotate();
+	  -webkit-transform: rotate(0deg);
+	  -moz-transform: rotate(0deg);
+	  transform: rotate(0deg);
 	}
 	to {
 	  -webkit-transform: rotate(360deg);
@@ -497,7 +495,7 @@ a {
 }
 /* portfolio Section */
 .content-box.portfolio {
-	height: 100vh;
+	height: 100%;
 	width: 100vw;
 	background-color: #ffffff;
 	padding: 0;
@@ -510,8 +508,8 @@ a {
 	width: 100vw;
 	height: 100%;
 	z-index: 5;
-	padding-top: 2rem;
-	clip-path: polygon(0 0, 100% 0, 100% 96%, 0 75%);
+	padding: 4rem 0;
+	clip-path: polygon(0 0, 100% 0, 100% 85%, 0 65%);
 
 }
 .portfolio-wrap.text-wrap {
@@ -578,7 +576,7 @@ a {
 	width: 50%;
 	height:100%;
 	padding-bottom: 5rem;
-	margin: 0 10vw 2rem 2.5vw;
+	margin: 0 6.5vw 2rem;
 }
 .showcase-container h3 {
 	text-align: right;
@@ -661,6 +659,15 @@ form button {
 	opacity:0;
 	transition-timing-function: ease;
 }
+.fade-in {
+	transform: scale(0.8);
+	opacity: 0;
+}
+.fade-in.active {
+	transition: all 4s;
+	transform: scale(1);
+	opacity: 1;
+}
 
 .slide-left.slide-in { 
 	transform: translateX(-75%) scale(0.90);	
@@ -670,8 +677,13 @@ form button {
 	transform: translateX(0%) scale(1);
 	opacity: 1;
 }
+.slide-right.title {
+	transform: scale(0.5);
+	opacity: 0;
+}
 .slide-right.title.active {
-	transform: translateX(0%) scale(1);
+	transition: all 2s;
+	transform:  scale(1);
 	opacity: 1;
 }
 .slide-in.slide-left.a{
@@ -716,15 +728,8 @@ form button {
 		height: 160vh;
 		width: 100vw;
 	}
-	.showcase-container a {
-		margin: 0 10vw;
-	}
 	.portfolio-wrap {
-		clip-path: polygon(0 0, 100% 0, 100% 96%, 0 85%);
-	}
-	.content-box.portfolio {
-		height: 165vh;
-		width: 100vw;
+		clip-path: polygon(0 0, 100% 0, 100% 92%, 0 82%);
 	}
 }
 
@@ -760,7 +765,7 @@ form button {
 		font-size: 2vh;
 	}
 	.content-box.portfolio {
-		height: 130vh;
+		height: 110%;
 		width: 100vw;
 	}
 	#nav-portfolio {
@@ -826,11 +831,10 @@ form button {
 		font-size: 1.5vh;
 	}
 	.portfolio-wrap {
-		clip-path: polygon(0 0, 100% 0, 100% 96%, 0 90%);
+		clip-path: polygon(0 0, 100% 0, 100% 73%, 0 62%);
 	}
 	.content-box.portfolio {
-		height: 155vh;
-		width: 100vw;
+		height: 120%;
 	}	
 }
 
