@@ -18,7 +18,7 @@ p {
 .big-rectangle {
 	position: absolute;
 	width: 100%;
-	height: 100%;
+	height: 100vh;
 	background-color: #242582;
 	overflow: hidden;
 	z-index: 0;
