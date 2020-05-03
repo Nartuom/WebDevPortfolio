@@ -17,6 +17,10 @@ app.get("/", function(req, res){
 	res.render("index");
 });
 
+app.get("/success", function(req, res){
+    res.render("success");
+});
+
 //body Parser middleware
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -50,15 +54,26 @@ app.post("/", function(req, res, next){
         }, function(error, info){
         if(error) {
             console.log(error);
+            res.render("index");
         } else {
             console.log("Message sent successfully:");
+            res.render("success");
             }
 
         });
     }
     main().catch(console.error);
-    next(res.render("index"));  
     
+});
+app.get("*", function(req, res, next){
+    fs.readFile("/file-does-not-exist", function(err, data){
+        if(err){
+            let err = new Error(`Someone tried to reach ${req.originalUrl}`);
+            res.status(404).render("error");
+            next(err);
+        } 
+        res.render("index");
+    })
 });
 
 var url = process.env;

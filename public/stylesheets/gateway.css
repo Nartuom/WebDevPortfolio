@@ -23,6 +23,11 @@ p {
 	overflow: hidden;
 	z-index: 0;
 }
+/* .big-rectangle.success {
+	background-color: #191716;
+	margin: 0;
+
+} */
 .big-rectangles {
 	position: inherit;
 	display: block;
@@ -58,6 +63,10 @@ p {
 	transform: rotate(-40deg);
 	box-shadow: 0px 5px 10px #181950;
 }
+/* .big-rectangles.success {
+	background-color: #183A37;
+	box-shadow: none;
+} */
 .drop-wrapper {
 	position: relative;
 	display: flex;
@@ -101,6 +110,15 @@ p {
 	color: #F64C71;
 	text-transform: uppercase;
 	margin: 0.5em 0;
+}
+.success {
+	font-size: calc(3vh + 0.5vw);
+	font-weight: 400;
+	line-height: 1.5em;
+	color: #F64C71;
+	text-transform: uppercase;
+	margin: 0.5em 0;
+
 }
 .droptangle {
 	position: absolute;
@@ -651,7 +669,9 @@ form button {
 	padding: 1em;
 	z-index: 5;
 }
-
+.redirectMsg {
+	font-size: 26px;
+}
 
 /* Skill and project sliders */
 .slide-in {
