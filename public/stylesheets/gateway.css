@@ -387,7 +387,6 @@ a {
 .grid-item.content-box button {
 	height: 45px;
 	width: 140px;
-	margin-top: 1.5rem;
 	background-color: white;
 	font-family: "dosis", sans serif;
 	font-size: 18px;
@@ -604,7 +603,6 @@ form {
 	grid-template-columns: 1fr 1fr;
 	grid-column-gap: 20px;
 	grid-row-gap: 10px;
-	padding-right:2vw;
 }
 
 form input {
@@ -626,6 +624,7 @@ form textarea{
 form button {
 	grid-column: 1;
 	padding: 10px;
+	margin-top: 0;
 }
 #nav-contact {
 	height: 100%;
@@ -665,7 +664,7 @@ form button {
 	opacity: 0;
 }
 .fade-in.active {
-	transition: all 4s;
+	transition: all 2.8s;
 	transform: scale(1);
 	opacity: 1;
 }
