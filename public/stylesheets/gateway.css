@@ -684,7 +684,7 @@ form button {
 	opacity: 0;
 }
 .fade-in.active {
-	transition: all 2.8s;
+	transition: all 3.5s;
 	transform: scale(1);
 	opacity: 1;
 }
