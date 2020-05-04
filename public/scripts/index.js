@@ -45,7 +45,6 @@ function checkSlide(){
 //slide in script for h1 and h4 on landing page
 const slideDown = document.querySelectorAll("h1");
 const title = document.getElementById("jobRole");
-const home = document.getElementsByClassName("home");
 function myName(){
     slideDown.forEach(function(slider, index){
         slider.classList.add("active");
@@ -53,7 +52,9 @@ function myName(){
     title.classList.add("active");
 }
 
-document.addEventListener("DOMContentLoaded", myName);
+window.onload = function(){
+    myName();
+}
 
 window.addEventListener("scroll", function(){
     debounce(checkSlide(), 300, true);
