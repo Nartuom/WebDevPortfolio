@@ -59,7 +59,6 @@ app.post("/", function(req, res, next){
             console.log("Message sent successfully:");
             res.render("success");
             }
-
         });
     }
     main().catch(console.error);
