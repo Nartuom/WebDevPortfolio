@@ -20,7 +20,6 @@ app.get("/", function(req, res){
 app.get("/success", function(req, res){
     res.render("success");
 });
-
 //body Parser middleware
 app.use(bodyParser.urlencoded({ extended: false}));
 app.use(bodyParser.json());
@@ -29,7 +28,6 @@ app.use(bodyParser.json());
 // Nodemailer
 app.post("/", function(req, res, next){
     async function main() {
-
     const email = `${req.body.user_email}`;
     const name  = `${req.body.user_name}`;
     const message = 
@@ -37,7 +35,6 @@ app.post("/", function(req, res, next){
         <div><h4>Name:</h4> ${name} </div>
         <div><h5>Message:</h5> ${req.body.user_message}</div>`      
         ;
-    
     //Nodemailer route fror emails
     const transporter = nodemailer.createTransport(
         nodemailerSendgrid({
@@ -61,8 +58,7 @@ app.post("/", function(req, res, next){
             }
         });
     }
-    main().catch(console.error);
-    
+    main().catch(console.error); 
 });
 app.get("*", function(req, res, next){
     fs.readFile("/file-does-not-exist", function(err, data){

@@ -36,7 +36,7 @@ function checkSlide(){
         if(isHalfShown && isNotScrolledPast) {            
             slider.classList.add("active");
         } else {
-            slider.classList.remove("active");
+            // slider.classList.remove("active");
         }
 
     });
