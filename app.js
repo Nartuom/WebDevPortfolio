@@ -9,7 +9,7 @@ let express = require("express"),
     enforce = require('express-sslify');
 
 var Recaptcha = require('express-recaptcha').RecaptchaV3;
-var recaptcha = new Recaptcha("6LcOuPsUAAAAAFBlAuCUCQ6kui7xBynfNBmXwPz1", "6LcOuPsUAAAAADRs9-unqvFF79V1Zoe2x9l1YZwW",{callback:"cb"});
+var recaptcha = new Recaptcha("6LcOuPsUAAAAAFBlAuCUCQ6kui7xBynfNBmXwPz1", process.env.SECRET_KEY,{callback:"cb"});
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
