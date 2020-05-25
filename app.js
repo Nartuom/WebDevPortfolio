@@ -7,13 +7,14 @@ let express = require("express"),
     https = require('https'),
     fs = require("fs"),
     enforce = require('express-sslify');
+    require('dotenv').config();
+    
 
 var Recaptcha = require('express-recaptcha').RecaptchaV3;
-var recaptcha = new Recaptcha("6LcOuPsUAAAAAFBlAuCUCQ6kui7xBynfNBmXwPz1", "6LcOuPsUAAAAADRs9-unqvFF79V1Zoe2x9l1YZwW",{callback:"cb"});
+var recaptcha = new Recaptcha("6LcOuPsUAAAAAFBlAuCUCQ6kui7xBynfNBmXwPz1", process.env.SECRET_KEY,{callback:"cb"});
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(enforce.HTTPS({ trustProtoHeader: true }));
-
 app.get("/", recaptcha.middleware.render, function(req, res){
 	res.render("index", { captcha:res.recaptcha });
 });
@@ -63,7 +64,7 @@ app.post("/", recaptcha.middleware.verify, function(req, res, next){
             main().catch(console.error);
       } else {
         // error code
-        
+        res.render("error");
       }
 });
       
