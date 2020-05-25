@@ -6,7 +6,9 @@ let express = require("express"),
     app		= express(),
     https = require('https'),
     fs = require("fs"),
-    enforce = require('express-sslify');    
+    enforce = require('express-sslify');
+    require('dotenv').config();
+    
 
 var Recaptcha = require('express-recaptcha').RecaptchaV3;
 var recaptcha = new Recaptcha("6LcOuPsUAAAAAFBlAuCUCQ6kui7xBynfNBmXwPz1", process.env.SECRET_KEY,{callback:"cb"});
