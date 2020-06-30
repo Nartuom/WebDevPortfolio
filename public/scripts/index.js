@@ -19,12 +19,13 @@ function debounce(func, wait, immediate){
 };
 //select Sliding elements on left
 const sliders = document.querySelectorAll(".slide-in");
+const faders = document.querySelectorAll(".fader");
 
 // Check if sliding elements are halfway on screen then add/ remove slide class.
 function checkSlide(){
     sliders.forEach(function(slider, index ){
         //halfway through the image in relation to half the window
-        let slideInAt = (window.pageYOffset + window.innerHeight) + slider.offsetHeight/4;
+        let slideInAt = (window.pageYOffset + window.innerHeight) + slider.offsetHeight/2;
         //bottom of the image
         let sliderBottom = slider.offsetTop + slider.offsetHeight;      
         //is the image half visible
@@ -32,13 +33,31 @@ function checkSlide(){
         //have we scrollled past the image
         let isNotScrolledPast = window.scrollY < sliderBottom;        
         //if image is half visible from to or bottom, then add active class
-        
         if(isHalfShown && isNotScrolledPast) {            
             slider.classList.add("active");
         } else {
             // slider.classList.remove("active");
         }
+    });
+}
 
+// Check if fading elements are on screen then add fade class.
+function checkFade(){
+    faders.forEach(function(fader, index ){
+        //halfway through the image in relation to half the window
+        let fadeInAt = (window.pageYOffset + window.innerHeight) + fader.offsetHeight/5;
+        //bottom of the image
+        let sliderBottom = fader.offsetTop + fader.offsetHeight;      
+        //is the image half visible
+        let isHalfShown = fadeInAt > fader.offsetTop;      
+        //have we scrollled past the image
+        let isNotScrolledPast = window.scrollY < sliderBottom;        
+        //if image is half visible from to or bottom, then add active class
+        if(isHalfShown && isNotScrolledPast) {            
+            fader.classList.add("active");
+        } else {
+            // slider.classList.remove("active");
+        }
     });
 }
 
@@ -57,6 +76,7 @@ document.addEventListener("DOMContentLoaded", myName);
 
 window.addEventListener("scroll", function(){
     debounce(checkSlide(), 300, true);
+    debounce(checkFade(), 300, true);
 });
 
 //button click
