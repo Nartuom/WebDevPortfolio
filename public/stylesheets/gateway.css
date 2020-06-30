@@ -379,11 +379,11 @@ a {
 	width: 100vw;
 	justify-content: space-evenly;
 	z-index: 1;
-	transition: height 1.4s ease-in-out;
+	transition: height 1s cubic-bezier(.49,.98,.48,1.12);
 }
 .content-box.expanded {
 	height: 60em;
-	transition: height 0.5s ease-in-out ;
+	transition: height 0.8s cubic-bezier(.49,.98,.48,1.12);
 }
 .about-wrap {
 	display:inline-flex;
@@ -397,7 +397,7 @@ a {
 	max-height: 0px;
 	opacity: 0;
 	overflow: hidden;
-	transition: max-height 0.9s ease-in-out;
+	transition: max-height 0.8s cubic-bezier(.49,.98,.48,1.12), opacity 0.6s;
 }
 .expandableDiv.active {
 	display: flex;
@@ -405,7 +405,7 @@ a {
 	opacity: 1;
 	height: auto;
 	max-height: 950px;
-	transition: max-height 2s ease-in-out;
+	transition: max-height 1.5s cubic-bezier(.49,.98,.48,1.12);
 
 }
 .grid-item.content-box button {
@@ -446,6 +446,7 @@ a {
 	flex-grow: 1;
 	overflow: hidden;
 	height: inherit;
+	transition: all 0.1s;
 }
 .koreaTom {
 	object-fit: cover;
@@ -455,9 +456,11 @@ a {
 	margin: 0;
 	image-rendering: auto;
 	transform: translateY(0);
+	transition: 0.5s all;
 }
 .koreaTom.expandedImg {
 	transform: translateY(0);
+	transition: all 0.5s;
 }
 /* Skills Section */
 .grid-item.margin {
@@ -465,7 +468,9 @@ a {
 	padding: 2rem 10vw;
 	grid-row: span 1;
 	color: #F64C71;
-	background-color: #F5F5F5;
+	background-color: #F5F5F5 !important;
+	transform: scale(1) !important;
+	opacity: 1 !important;
 }
 .grid-item.skills {
 	grid-row: span 1;
@@ -612,8 +617,6 @@ a {
 	margin: 0 0;
 }
 
-
-
 /* Contact section */
 
 .grid-item.contact {
@@ -639,6 +642,7 @@ form textarea{
 	padding:10px;
 	max-width: 850px;
 	max-height: 1000px;
+	border: 1px solid #a5a5a5;
 }
 form button {
 	grid-column: 1;
@@ -674,7 +678,16 @@ form button {
 	font-size: 26px;
 }
 
-/* Skill and project sliders */
+/* Skill and project  animations sliders */
+.fader {
+	transform: scale(0.9);
+	opacity: 0;
+}
+.fader.active {
+	transform: scale(1);
+	transition: transform 1s, opacity 1s;	
+	opacity: 1;
+}
 .fade-in {
 	transform: scale(0.8);
 	opacity: 0;
@@ -684,18 +697,14 @@ form button {
 	transform: scale(1);
 	opacity: 1;
 }
+/*sliders */
 .slide-left.slide-in { 
-	transform: translateX(-100%) scale(0.85);
-	transition:all 1s cubic-bezier(0.43, 0.91, 0.71, 1.02);
-	opacity:0;	
-}
-.slide-right.title {
-	transform: scale(0.5);
+	transform: translateX(-200%) scale(0.85);
 	opacity: 0;
 }
-.slide-right.title.active {
-	transition: all 2s;
-	transform:  scale(1);
+.slide-in.active{
+	transform: translateX(0%) scale(1);
+	transition: transform 1s cubic-bezier(.49,.98,.48,1.12), opacity 1s;
 	opacity: 1;
 }
 .slide-in.slide-left.a{
@@ -715,10 +724,6 @@ form button {
 }
 .slide-in.slide-left.f{
 	transition-delay: 1s;
-}
-.slide-in.active{
-	transform: translateX(0%) scale(1);
-	opacity: 1;
 }
 
 
