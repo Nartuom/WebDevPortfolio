@@ -45,7 +45,7 @@ function checkSlide(){
 function checkFade(){
     faders.forEach(function(fader, index ){
         //halfway through the image in relation to half the window
-        let fadeInAt = (window.pageYOffset + window.innerHeight) + fader.offsetHeight/5;
+        let fadeInAt = (window.pageYOffset + window.innerHeight) + fader.offsetHeight/3;
         //bottom of the image
         let sliderBottom = fader.offsetTop + fader.offsetHeight;      
         //is the image half visible
