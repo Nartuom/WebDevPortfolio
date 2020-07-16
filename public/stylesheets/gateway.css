@@ -13,6 +13,7 @@ body {
 }
 p {
 	line-height: 26px;
+	margin: 0 0 1rem;
 }
 .grecaptcha-badge { visibility: hidden; }
 #captchaDiv {
@@ -452,7 +453,7 @@ h2 {
 	font-size: 100px;
 	font-weight: 400;
 	color: #2127B3;
-	margin: 6vh 0 1rem;
+	margin: 2rem 0 1.5rem;
 	text-transform: uppercase;
 }
 h3 {
@@ -467,6 +468,7 @@ h4 {
 	font-size: calc(2vh + 0.5vw);
 	color: #F64C71;
 	text-decoration: underline;
+	margin: 0 0 1.5rem;
 }
 h5 {
 	font-size: calc(1.5vh + 0.5vw);
@@ -573,7 +575,7 @@ a {
 /* Skills Section */
 .grid-item.margin {
 	margin: 0;
-	padding: 2rem 10vw;
+	padding: 2rem 10vw 1rem;
 	grid-row: span 1;
 	color: #F64C71;
 	background-color: #F5F5F5 !important;
@@ -592,7 +594,10 @@ a {
 	display: flex;
 	flex-basis: 20%;
 	flex: 1;
-	padding: 1rem 1rem;
+	padding: 1rem 1rem 1rem;
+}
+.skill-container:first-of-type {
+	padding-left: 0;
 }
 .skill-box {
 	height: 100%;
@@ -613,6 +618,7 @@ a {
 	display: flex;
 	text-align: left;
 	align-items: center;
+	width: 120px;
 	padding: 0.5em 0.5em 0.5em 0;
 	margin: 0.5em 0.5em 0.5em;
 }
@@ -910,7 +916,7 @@ form button {
 	.image-wrap {
 		width: 100%;
 	}
-	.grid-item.skills {
+	.grid-item.skills, .skill-box ul {
 		justify-content: center;
 		padding: 1rem 0.5rem;
 	}
