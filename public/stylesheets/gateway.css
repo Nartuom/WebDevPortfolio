@@ -111,96 +111,96 @@ p {
 	width: 100%;
 }
 #titleName {
-	animation: fill 2s ease forwards 2s;
+	animation: fill 1.2s ease forwards 1.2s;
 	margin: 2rem 0 1rem;
 }
 
 #titleName path:nth-child(2){
 	stroke-dasharray: 344;
 	stroke-dashoffset: 344;
-	animation: line-anim 2s ease-in forwards;
+	animation: line-anim 1.5s ease-in forwards;
 
 }
 #titleName path:nth-child(3){
 	stroke-dasharray: 443;
 	stroke-dashoffset: 443;
-	animation: line-anim 2s ease forwards 0.05s;	
+	animation: line-anim 1.5s ease forwards 0.05s;	
 }
 #titleName path:nth-child(4){
 	stroke-dasharray: 362;
 	stroke-dashoffset: 362;	
-	animation: line-anim 2s ease forwards 0.1s;
+	animation: line-anim 1.5s ease forwards 0.1s;
 }
 #titleName path:nth-child(5){
 	stroke-dasharray: 562;
 	stroke-dashoffset: 562;
-	animation: line-anim 2s ease forwards 0.15s;
+	animation: line-anim 1.5s ease forwards 0.15s;
 }
 #titleName path:nth-child(6){
 	stroke-dasharray: 394;
 	stroke-dashoffset: 394;
-	animation: line-anim 2s ease forwards 0.2s;
+	animation: line-anim 1.5s ease forwards 0.2s;
 }
 #titleName path:nth-child(7){
 	stroke-dasharray: 324;
 	stroke-dashoffset: 324;
-	animation: line-anim 2s ease forwards 0.25s;
+	animation: line-anim 1.5s ease forwards 0.25s;
 }
 #titleName path:nth-child(8){
 	stroke-dasharray: 628;
 	stroke-dashoffset: 628;
-	animation: line-anim 2s ease forwards 0.3s;
+	animation: line-anim 1.5s ease forwards 0.3s;
 	
 }
 #titleName path:nth-child(9){
 	stroke-dasharray: 336;
 	stroke-dashoffset: 336;
-	animation: line-anim 2s ease forwards 0.35s;
+	animation: line-anim 1.5s ease forwards 0.35s;
 }
 #titleName path:nth-child(10){
 	stroke-dasharray: 216;
 	stroke-dashoffset: 216;
-	animation: line-anim 2s ease forwards 0.4s;
+	animation: line-anim 1.5s ease forwards 0.4s;
 }
 #titleName path:nth-child(11){
 	stroke-dasharray: 296;
 	stroke-dashoffset: 296;
-	animation: line-anim 2s ease forwards 0.45s;
+	animation: line-anim 1.5s ease forwards 0.45s;
 }
 #titleName path:nth-child(12){
 	stroke-dasharray: 362;
 	stroke-dashoffset: 362;
-	animation: line-anim 2s ease forwards 0.5s;
+	animation: line-anim 1.5s ease forwards 0.5s;
 }
 #titleName path:nth-child(13){
 	stroke-dasharray: 357;
 	stroke-dashoffset: 357;
-	animation: line-anim 2s ease forwards 0.55;
+	animation: line-anim 1.5s ease forwards 0.55;
 }
 #titleName path:nth-child(14){
 	stroke-dasharray: 104;
 	stroke-dashoffset: 104;
-	animation: line-anim 2s ease forwards 0.6s;
+	animation: line-anim 1.5s ease forwards 0.6s;
 }
 #titleName path:nth-child(15){
 	stroke-dasharray:323;
 	stroke-dashoffset: 323;
-	animation: line-anim 2s ease forwards 0.65s;
+	animation: line-anim 1.5s ease forwards 0.65s;
 }
 #titleName path:nth-child(16){
 	stroke-dasharray: 395;
 	stroke-dashoffset: 395;
-	animation: line-anim 2s ease forwards 0.7s;
+	animation: line-anim 1.5s ease forwards 0.7s;
 }
 #titleName path:nth-child(17){
 	stroke-dasharray: 514;
 	stroke-dashoffset: 514;
-	animation: line-anim 2s ease forwards 0.75s;
+	animation: line-anim 1.5s ease forwards 0.75s;
 }
 #titleName path:nth-child(18){
 	stroke-dasharray: 241;
 	stroke-dashoffset: 241;
-	animation: line-anim 2s ease forwards 0.8s;
+	animation: line-anim 1.5s ease forwards 0.8s;
 }
 
 @keyframes line-anim{
@@ -384,7 +384,6 @@ p {
 		opacity: 0;
 	}	
 }
-
 nav{
 	position:fixed;
 	display: none;
@@ -408,7 +407,6 @@ nav ul{
 	justify-content: space-evenly;
 	align-items: center;	
 }
-
 nav ul li {
 	font-size:calc(2vh + 0.5vw);
 	font-weight: 700;
@@ -594,7 +592,7 @@ a {
 	display: flex;
 	flex-basis: 20%;
 	flex: 1;
-	padding: 1rem 1rem 1rem;
+	padding: 1rem 0.5rem 1rem;
 }
 .skill-container:first-of-type {
 	padding-left: 0;
@@ -616,11 +614,12 @@ a {
 }
 .skill-box li {
 	display: flex;
-	text-align: left;
+	text-align: center;
 	align-items: center;
-	width: 120px;
+	width: 220px;
 	padding: 0.5em 0.5em 0.5em 0;
 	margin: 0.5em 0.5em 0.5em;
+	white-space: nowrap;
 }
 .tick {
 	width: 20px;
@@ -793,7 +792,6 @@ form button {
 .redirectMsg {
 	font-size: 26px;
 }
-
 /* Skill and project  animations sliders */
 .fader {
 	opacity: 0;
@@ -807,7 +805,7 @@ form button {
 	opacity: 0;
 }
 .fade-in.active {
-	transition: all 2s ease 2s;
+	transition: all 2s ease 1.2s;
 	transform: scale(1);
 	opacity: 1;
 }
@@ -839,8 +837,6 @@ form button {
 .slide-in.slide-left.f{
 	transition-delay: 1s;
 }
-
-
 /* Media Queries */
 @media(max-width: 1900px) {
 	
