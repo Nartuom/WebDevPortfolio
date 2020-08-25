@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+
 body {
   margin: 0;
   height: 100%;
@@ -422,6 +424,22 @@ p {
     opacity: 0;
   }
 }
+#scrorrow {
+  width: 40px;
+  align-self: flex-end;
+  position: absolute;
+  margin-bottom: 1.5rem;
+  animation: scrorrowBounce 1s infinite alternate;
+}
+@keyframes scrorrowBounce {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(-10px);
+  }
+}
+
 nav {
   position: fixed;
   display: none;
@@ -500,8 +518,10 @@ h3 {
   padding-bottom: 2.5rem;
   text-transform: uppercase;
 }
-h4 {
+h4,
+.skill-type {
   font-size: calc(2vh + 0.5vw);
+  font-weight: 600;
   color: #f64c71;
   text-decoration: underline;
   margin: 0 0 1.5rem;
@@ -827,7 +847,7 @@ form button {
 }
 /* Skill and project  animations sliders */
 .fader {
-  opacity: 0;
+  opacity: 1;
 }
 .fader.active {
   transition: opacity 1.5s;
