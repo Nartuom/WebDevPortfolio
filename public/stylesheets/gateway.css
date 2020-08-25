@@ -94,10 +94,6 @@ p {
   transform: rotate(-40deg);
   box-shadow: 0px 5px 10px #181950;
 }
-/* .big-rectangles.success {
-	background-color: #183A37;
-	box-shadow: none;
-} */
 .drop-wrapper {
   position: relative;
   display: flex;
@@ -143,16 +139,14 @@ p {
   display: block;
   height: 60%;
   width: 70%;
-  align-items: center;
   z-index: 2;
 }
 .title-inner {
-  align-items: center;
   height: 100%;
   width: 100%;
 }
 #titleName {
-  animation: fill 1.2s ease forwards 1.2s;
+  animation: fill 1.5s ease forwards 1.5s;
   margin: 2rem 0 1rem;
 }
 
@@ -241,7 +235,6 @@ p {
   stroke-dashoffset: 241;
   animation: line-anim 1.5s ease forwards 0.8s;
 }
-
 @keyframes line-anim {
   to {
     stroke-dashoffset: 0;
@@ -371,7 +364,6 @@ p {
     transform: rotate(360deg);
   }
 }
-
 @keyframes infinite-falling {
   0% {
     top: 0%;
@@ -439,7 +431,6 @@ p {
     transform: translateY(-10px);
   }
 }
-
 nav {
   position: fixed;
   display: none;
@@ -470,12 +461,8 @@ nav ul li {
 nav a {
   text-decoration: none;
   padding-right: 4.2vw;
-}
-
-nav a {
   color: #c83f77;
 }
-
 .container {
   display: grid;
   width: 100vw;
@@ -483,7 +470,6 @@ nav a {
   grid-template-columns: repeat(4, 25vw);
   grid-template-rows: repeat(2, minmax(auto, 50vh));
 }
-
 .grid-item {
   grid-column: span 4;
 }
@@ -496,7 +482,6 @@ nav a {
   overflow: hidden;
   background-color: #242582;
 }
-
 h1 {
   font-size: calc(12vh + 0.5vw);
   font-weight: 500;
@@ -640,41 +625,66 @@ a {
   grid-row: span 1;
   display: flex;
   background-color: #f5f5f5;
-  padding: 0 10vw 9.5vh;
   justify-content: space-between;
+  padding: 0 10vw 9.5vh;
   overflow: hidden;
 }
 .skill-container {
   display: flex;
-  flex-basis: 20%;
-  flex: 1;
-  padding: 1rem 0.5rem 1rem;
+  align-content: center;
+  align-items: center;
+  width: 280px;
+  padding: 6rem 0.5rem;
 }
 .skill-container:first-of-type {
   padding-left: 0;
 }
+.skill-box:before {
+  border-bottom: 80.83px solid #e6e6e6;
+  top: -80.83px;
+}
+.skill-box:after {
+  border-top: 80.83px solid #e6e6e6;
+  bottom: -80.83px;
+}
+.skill-box:before,
+.skill-box:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-left: 140px solid transparent;
+  border-right: 140px solid transparent;
+  position: absolute;
+  z-index: -1;
+}
 .skill-box {
-  height: 100%;
-  width: 100%;
-  text-align: left;
+  display: flex;
+  width: 280px;
+  height: 161.66px;
+  position: relative;
+  align-content: center;
   justify-content: flex-start;
   align-self: flex-start;
+  background-color: #e6e6e6;
 }
+
 .skill-box ul {
+  position: absolute;
+  top: -40px;
+  padding-top: 2rem;
   display: flex;
   flex-wrap: wrap;
   list-style: none;
   padding-left: 0;
-  justify-content: flex-start;
-  align-items: flex-end;
+  justify-content: center;
+  text-align: center;
 }
 .skill-box li {
   display: flex;
   text-align: center;
   align-items: center;
-  width: 220px;
-  padding: 0.5em 0.5em 0.5em 0;
-  margin: 0.5em 0.5em 0.5em;
+  justify-content: center;
+  width: 100%;
   white-space: nowrap;
 }
 .tick {
@@ -866,10 +876,16 @@ form button {
 .slide-left.slide-in {
   transform: translateX(-200%) scale(0.85);
   opacity: 0;
+  transition: all 1s ease;
+}
+.slide-right.slide-in {
+  transform: translateX(200%) scale(0.85);
+  opacity: 0;
+  transition: all 1s ease;
 }
 .slide-in.active {
   transform: translateX(0%) scale(1);
-  transition: all 1.6s cubic-bezier(0.49, 0.98, 0.48, 1.12);
+  transition: all 1s ease;
   opacity: 1;
 }
 .slide-in.slide-left.a {
@@ -971,7 +987,7 @@ form button {
     padding: 1rem 0.5rem;
   }
   .skill-container {
-    padding: 1rem 0;
+    padding: 5rem 0;
   }
   form input {
     font-size: 2vh;
