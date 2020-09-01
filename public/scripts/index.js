@@ -29,7 +29,7 @@ function checkSlide() {
     //bottom of the image
     let sliderBottom = slider.offsetTop + slider.offsetHeight;
     //is the image half visible
-    let isHalfShown = slideInAt > slider.offsetTop;
+    let isHalfShown = slideInAt > slider.offsetTop + 280;
     //have we scrollled past the image
     let isNotScrolledPast = window.scrollY < sliderBottom;
     //if image is half visible from to or bottom, then add active class
