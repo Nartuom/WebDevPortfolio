@@ -595,7 +595,6 @@ a {
   flex-grow: 1;
   overflow: hidden;
   height: inherit;
-  transition: all 0.2s;
 }
 .koreaTom {
   object-fit: cover;
