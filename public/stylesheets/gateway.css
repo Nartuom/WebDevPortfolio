@@ -595,7 +595,6 @@ a {
   flex-grow: 1;
   overflow: hidden;
   height: inherit;
-  transition: all 0.2s;
 }
 .koreaTom {
   object-fit: cover;
@@ -605,7 +604,7 @@ a {
   margin: 0;
   image-rendering: auto;
   transform: translateY(0);
-  transition: 0.8s all cubic-bezier(0.49, 0.98, 0.48, 1.12);
+  transition: all 0.8s cubic-bezier(0.49, 0.98, 0.48, 1.12);
 }
 .koreaTom.expandedImg {
   transform: translateY(0);
