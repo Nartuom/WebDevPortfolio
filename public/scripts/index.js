@@ -19,7 +19,6 @@ function debounce(func, wait, immediate) {
 }
 //select Sliding elements on left
 const sliders = document.querySelectorAll(".slide-in");
-const faders = document.querySelectorAll(".fader");
 
 // Check if sliding elements are halfway on screen then add/ remove slide class.
 function checkSlide() {
@@ -57,7 +56,6 @@ document.addEventListener("DOMContentLoaded", myName);
 
 window.addEventListener("scroll", function () {
   debounce(checkSlide(), 300, true);
-  debounce(checkFade(), 300, true);
 });
 
 //button click
