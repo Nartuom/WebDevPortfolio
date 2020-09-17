@@ -88,7 +88,7 @@ if (process.env.USERDOMAIN == "MARVIN") {
   https
     .createServer(
       {
-        key: fs.readFileSync("../private-key.key"),
+        key: fs.readFileSync("../domain.key"),
         cert: fs.readFileSync("../rootSSL.pem"),
       },
       app
